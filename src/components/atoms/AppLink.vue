@@ -19,8 +19,8 @@
 <script>
 export default {
   name: "AppLink",
-  data () {
-    return {}
+  data() {
+    return {};
   },
   props: {
     label: String,
@@ -30,5 +30,5 @@ export default {
       default: false
     }
   }
-}
+};
 </script>

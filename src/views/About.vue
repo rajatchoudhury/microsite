@@ -9,8 +9,8 @@
 <script>
 import NavBar from "@/components/organisms/NavBar.vue";
 export default {
-  components:{
+  components: {
     NavBar
   }
-}
+};
 </script>

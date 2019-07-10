@@ -4,15 +4,15 @@
 
 <script>
 export default {
-    name: 'Input',
-    props:{
-        typeText:{
-            type: String,
-            default: 'text'
-        },
-        input_shape: String,
-        placeholder: String,
-        textValue: String
-    }
-}
+  name: "Input",
+  props: {
+    typeText: {
+      type: String,
+      default: "text"
+    },
+    input_shape: String,
+    placeholder: String,
+    textValue: String
+  }
+};
 </script>
