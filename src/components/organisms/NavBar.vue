@@ -11,7 +11,7 @@ export default {
     return (
       <div>
         {" "}
-        <Banner /> <HorizontalNav links={this.links} />{" "}
+        <Banner />{" "}
       </div>
     );
   },

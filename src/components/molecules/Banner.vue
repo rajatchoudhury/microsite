@@ -1,38 +1,38 @@
 <template>
-  <section class="BannerSection">
+  <section class="bannerSection">
     <AppVideo
       src="movie.mp4"
       controls
       autoplay
       loop
       type="video/mp4"
-      :className="BannerSection__video"
+      :className="bannerSection__video"
     />
-    <div class="BannerSection__animText">
-      <div class="BannerSection__animText__left">
-        <div class="BannerSection__animText__leftContainer">
-          <AppParagraph content="Lorem ipsum dolor" align="BannerSection__animText__left-text" />
-          <AppParagraph content=" sit amet," align="BannerSection__animText__left-text" />
-          <AppParagraph content="consectetur" align="BannerSection__animText__left-text" />
-          <AppParagraph content="adipiscing elit" align="BannerSection__animText__left-text" />
+    <div class="bannerSection__animcontent">
+      <div class="bannerSection__animcontent__left">
+        <div class="bannerSection__animcontent__leftcontainer">
+          <AppHeaderTag
+            label="Lorem ipsum dolor <br/> sit amet, <br/> consectetur <br/> adipiscing elit"
+            grade="h2"
+            shape="bannerSection__animcontent__left-text"
+          />
         </div>
       </div>
-      <div class="BannerSection__animText__right">
-        <div class="BannerSection__animText__rightContainer">
-          <AppParagraph
-            content="Lorem ipsum dolor sit amet"
-            align="BannerSection__animText__right-text"
+      <div class="bannerSection__animcontent__right">
+        <div class="bannerSection__animcontent__rightcontainer">
+          <AppHeaderTag
+            label="Lorem ipsum dolor sit amet <br/> Consectetur adipiscing elit, sed 
+            <br/> adipiscing elit <br/> do eiusmod tempor <br/> incididunt ut labore et dolore"
+            grade="h3"
+            shape="bannerSection__animcontent__right-text"
           />
-          <AppParagraph
-            content="Consectetur adipiscing elit, sed"
-            align="BannerSection__animText__right-text"
-          />
-          <AppParagraph content="do eiusmod tempor" align="BannerSection__animText__right-text" />
-          <AppParagraph
-            content="incididunt ut labore et dolore"
-            align="BannerSection__animText__right-text"
-          />
-          <AppLink :isNewWindow="true" href="#" label="Learn More"></AppLink>
+
+          <AppLink
+            :isNewWindow="true"
+            href="#"
+            label="Learn More"
+            class="bannerSection__animcontent__right--applink"
+          ></AppLink>
         </div>
       </div>
     </div>
@@ -43,12 +43,14 @@
 import AppVideo from "../atoms/AppVideo";
 import AppParagraph from "@/components/atoms/AppParagraph";
 import AppLink from "@/components/atoms/AppLink";
+import AppHeaderTag from "@/components/atoms/AppHeaderTag";
 
 export default {
   components: {
     AppVideo,
     AppParagraph,
-    AppLink
+    AppLink,
+    AppHeaderTag
   }
 };
 </script>

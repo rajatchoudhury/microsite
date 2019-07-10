@@ -308,3 +308,60 @@
     transform: translateY(0%);
   }
 }
+
+// MIXIN: Padding
+
+@mixin padding($p-direction, $p-amount) {
+  @if $p-direction == all {
+    padding: $p-amount;
+  } @else {
+    padding-#{$p-direction}: $p-amount;
+  }
+}
+
+// MIXIN: Margin
+
+@mixin margin($m-direction, $m-amount){
+  @if $m-direction == all {
+    margin: $m-amount;
+  } @else {
+    margin-#{$m-direction}: $m-amount;
+  }
+}
+
+// MIXIN: Text
+
+@mixin  text-align($direction) {
+  text-align: $direction
+}
+
+@mixin  text-transform($transform){
+  text-transform: $transform;
+}
+
+// MIXIN FONT
+@mixin font-weight($weight) {
+  font-weight: $weight;
+}
+
+@mixin font-family($family) {
+  font-family: $family;
+}
+@mixin font-size($size) {
+  font-size: $size;
+}
+
+@mixin v-align($position) {
+  vertical-align: $position
+}
+
+//MIXIN BORDER
+@mixin border($direction, $width, $style, $color) {
+  @if $direction == all{
+    border: $width $style $color;
+  } @else{
+    border-#{$direction}: $width $style $color;
+  }
+
+}
+

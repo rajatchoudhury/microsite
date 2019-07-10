@@ -1,7 +1,7 @@
 body {
     overflow: hidden;
   }
-.BannerSection {
+.bannerSection {
     width: 100%;
     background-size: cover;
     position: relative;
@@ -13,7 +13,7 @@ body {
     }
     
 
-    &__animText {
+    &__animcontent {
         @include flexbox;
         height: 100vh;
         position: absolute;
@@ -26,16 +26,16 @@ body {
           animation-duration: 2s;
           position: relative;
           &-text {
-            font-size: 52px;
+            // font-size: 52px;
             line-height: 52px;
             color: $text--white;
           }
         }
-        &__leftContainer {
+        &__leftcontainer {
           position: absolute;
           bottom: 50px;
         }
-        &__rightContainer {
+        &__rightcontainer {
           position: absolute;
           bottom: 100px;
         }
@@ -45,12 +45,12 @@ body {
           animation-duration: 2s;
           position: relative;
           &-text {
-            font-size: 32px;
-            line-height: 32px;
+            // font-size: 32px;
+            line-height: 35px;
             color: $text--white;
           }
-          .app-link {
-            font-size: 32px;
+          &--applink {
+            font-size: 25px;
             position: relative;
             top: 50px;
             text-decoration: none;
@@ -60,4 +60,4 @@ body {
       }
   }
 
-  
+ 
