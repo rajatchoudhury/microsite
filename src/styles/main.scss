@@ -6,6 +6,14 @@
 @import "./partials/_fonts";      // Decalaring fonts per MWF guidelines
 @import "./partials/_variables";  // Declare global variables here
 @import "./partials/_typography"; // Declaring all typography
+@import "./partials/_global.scss";
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+@import "./HomePageBanner.scss";
+
+
+
+
 
 
 // Header 

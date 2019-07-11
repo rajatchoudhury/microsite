@@ -1,0 +1,52 @@
+.banner {
+    background-color: $bg--blue;
+    @extend .w-100;   
+    @extend .h100vh;
+   
+    &__textbanner {
+      color: $text--white;
+      @include media-breakpoint-between(sm,md) {
+        &--headerText{
+            font-size: 50pt;
+          }
+      }
+      @include  media-breakpoint-between(md,lg){
+        &--headerText{
+            font-size: 50pt;
+          }
+      }
+      @include  media-breakpoint-up(xl){
+        &--headerText{
+            font-size: 10rem;
+          }
+      }
+    }
+    &__bltext {
+      color:$text--white;
+      @include media-breakpoint-between(sm,md) {
+        &--paraText{
+            font-size: 1.1rem;
+          }
+      }
+
+      @include  media-breakpoint-between(md,lg){
+        &--paraText{
+            font-size: 1.1rem;
+          }
+      }
+
+      @include  media-breakpoint-up(xl){
+        &--paraText{
+            font-size: 2rem;
+          }
+      }
+    }
+    &__dxp {
+        @extend .pos--rel;
+          top: 30%;
+   
+    }
+    
+
+  }
+  

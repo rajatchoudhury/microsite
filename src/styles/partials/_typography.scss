@@ -1,7 +1,7 @@
 // Typography declaration
 
 body {
-  font-family: $segoe;
+  font-family: $Oswald-Regular;
   font-size: 16px;
   line-height: 22px;
   color: $text--default;
@@ -26,7 +26,7 @@ h2 {
 }
 
 h3 {
-  font-family: $segoe--semi;
+  font-family: $Oswald-SemiBold;
   font-weight: $semi-bold;
   font-size: 2em;
   line-height: 1.2em;
@@ -35,8 +35,8 @@ h3 {
 }
 
 h4 {
-  font-family: $segoe--semi;
-  font-weight: $semi-bold;
+  font-family: $Oswald-ExtraLight;
+  font-weight: $normal;
   font-size: 1.5em;
   line-height: 1.2em;
   margin: 0;
