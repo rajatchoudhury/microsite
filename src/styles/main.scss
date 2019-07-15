@@ -9,8 +9,9 @@
 @import "./partials/_typography"; // Declaring all typography
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
+@import "./HomePageBanner.scss";
+@import "./gradientBanner.scss";
 @import "./FullPageBanner.scss";
-
 // Header 
 
 .navbar-container{

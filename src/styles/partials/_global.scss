@@ -201,6 +201,9 @@
     font-size: 10rem;
 
 }
+.f-5rem {
+    font-size: 2rem;
+}
 .f-3rem{
     font-size: 3.5rem
 }
@@ -210,7 +213,6 @@
 .f-1rem {
     font-size: 1rem;
 }
-
 
 // Text Align
 
@@ -302,6 +304,12 @@
     position: relative;
 }
 
+.tilteffect {
+    transition: transform 1s;
+    transition-timing-function: linear;
+    animation: hpbanner 6s infinite;
+    }
+
 .aligncontentright {
     @include flexbox;
     @include flex-direction(column);
@@ -334,6 +342,7 @@ animation: fpBanner 10s infinite;
           animation-duration: 2s;
           position: relative;
     }
+
 
     .fromBottomanim {
         animation-name: landingSlideUp;
