@@ -10,7 +10,7 @@ export default {
   render(createElement) {
     return (
       <div>
-        <FullPageBanner />{" "}
+        <FullPageBanner />
       </div>
     );
   },
