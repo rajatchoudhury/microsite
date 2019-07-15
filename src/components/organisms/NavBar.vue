@@ -6,12 +6,14 @@ import HorizontalNav from "../molecules/HorizontalNav";
 import HomePageBanner from "../molecules/HomePageBanner";
 import gradientBanner from "../molecules/gradientBanner";
 import CustomInput from "../molecules/CustomInput";
+import FullPageBanner from "../molecules/FullPageBanner";
 export default {
   name: "NavBar",
   render(createElement) {
     return (
       <div>
-        <CustomInput />{" "}
+        <CustomInput />
+        <FullPageBanner />
       </div>
     );
   },

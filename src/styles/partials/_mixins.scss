@@ -339,6 +339,46 @@ $desktop-width: 1024px;
 }
 
 
+// MIXIN: Padding
+
+@mixin padding($p-direction, $p-amount) {
+  @if $p-direction == all {
+    padding: $p-amount;
+  } @else {
+    padding-#{$p-direction}: $p-amount;
+  }
+}
+
+// MIXIN: Margin
+
+@mixin margin($m-direction, $m-amount){
+  @if $m-direction == all {
+    margin: $m-amount;
+  } @else {
+    margin-#{$m-direction}: $m-amount;
+  }
+}
+
+@keyframes fpBanner {
+
+  0% {
+
+    transform: perspective(1200px) rotateY(0deg);
+}
+  25% {
+   transform: perspective(1200px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(1200px) rotateY(10deg);
+ }
+  75% {
+    transform: perspective(1200px) rotateY(-10deg);
+  }
+  100% {
+    transform: perspective(1200px) rotateY(0deg);
+  }
+}
+
 @keyframes landingSlideDown {
   0% {
     transform: translateY(-100%);
