@@ -1,21 +1,32 @@
 <template>
   <div>
-    Title and description:
+    Angle Tilt:
+    <input
+      type="range"
+      name="points"
+      min="0"
+      max="50"
+      v-model="angle"
+      @change="changeKeyFrames()"
+    />
+    <br />Title and description:
     <label>
-      <input type="radio"/>
-    </label>
+      Left Text
+      <input type="radio" id="one" value="aligncontentleft" v-model="picked" />
+    </label>&nbsp;
     <label>
-      <input type="radio"/>
-    </label>
-    <div class="container-fluid fpbanner">
+      right Text
+      <input type="radio" id="two" value="aligncontentright" v-model="picked" />
+    </label>&nbsp;
+    <br />
+    <div class="container-fluid fpbanner" id="fpbanner">
       <div class="row">
-        <div class="col-md-12 fpbanner__text aligncontentright">
+        <div class="col-md-12 fpbanner__text" :class="picked">
           <div class="fpbanner__text--para pos--rel">
             <h3 class="fpbanner__heading f-3rem">
-              <span class="fpbanner__heading--ptext paddLR5 m10">
-                Lorem Ipsum is simply dummy text of
-                the printing.
-              </span>
+              <span
+                class="fpbanner__heading--ptext paddLR5 m10"
+              >Lorem Ipsum is simply dummy text of the printing.</span>
             </h3>
 
             <h2 class="fpbanner__fpl2 f-2rem">
@@ -34,7 +45,46 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      picked: "aligncontentleft",
+      angle: 10
+    };
+  },
+  mounted() {
+    this.changeKeyFrames();
+  },
+  methods: {
+    changeKeyFrames() {
+      var ss = document.styleSheets;
+      for (var i = 0; i < ss.length; ++i) {
+        for (var j = 0; j < ss[i].cssRules.length; ++j) {
+          if (
+            (ss[i].cssRules[j].type === window.CSSRule.KEYFRAMES_RULE ||
+              ss[i].cssRules[j].type ===
+                window.CSSRule.WEBKIT_KEYFRAMES_RULE) &&
+            ss[i].cssRules[j].name == "fpBanner"
+          ) {
+            var keyframes = ss[i].cssRules[j];
+            keyframes.deleteRule("50%");
+            keyframes.deleteRule("75%");
+            keyframes.appendRule(
+              "50% { -moz-transform: perspective(1200px) rotateY(10deg); -webkit-transform: perspective(1200px) rotateY(" +
+                this.angle +
+                "deg); }"
+            );
+            keyframes.appendRule(
+              "75% { -moz-transform:perspective(1200px) rotateY(10deg); -webkit-transform: perspective(1200px) rotateY(-" +
+                this.angle +
+                "deg); }"
+            );
+          }
+        }
+      }
+    }
+  }
+};
 </script>
 
 
