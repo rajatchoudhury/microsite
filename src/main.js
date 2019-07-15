@@ -5,6 +5,9 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
+import BootstrapVue from "bootstrap-vue";
+
+Vue.use(BootstrapVue);
 new Vue({
   router,
   store,
