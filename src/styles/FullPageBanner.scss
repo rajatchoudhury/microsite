@@ -6,6 +6,11 @@
     @extend .bg-image;
     @extend .tilteffect;
     
+    @include media-breakpoint-between(sm,md) {
+        height: 50vh;
+    }
+    @include  media-breakpoint-between(md,lg){height: 50vh;}
+
     
 
    &__text{
@@ -18,6 +23,7 @@
             top: 50%;
             text-align: $txt-left;
             width: 100%;
+            
             
         }
         @include  media-breakpoint-between(md,lg){

@@ -315,18 +315,18 @@
 
   0% {
 
-    transform: perspective(800px) rotateY(0deg);
+    transform: perspective(1200px) rotateY(0deg);
 }
   25% {
-   transform: perspective(800px) rotateY(0deg);
+   transform: perspective(1200px) rotateY(0deg);
   }
   50% {
-    transform: perspective(800px) rotateY(10deg);
+    transform: perspective(1200px) rotateY(10deg);
  }
   75% {
-    transform: perspective(800px) rotateY(-10deg);
+    transform: perspective(1200px) rotateY(-10deg);
   }
   100% {
-    transform: perspective(800px) rotateY(0deg);
+    transform: perspective(1200px) rotateY(0deg);
   }
 }
