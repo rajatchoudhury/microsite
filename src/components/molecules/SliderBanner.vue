@@ -1,5 +1,33 @@
 <template>
   <div class="sliderBanner">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3" class="herotitle">Hero Banner</th>
+        </tr>
+        <tr>
+          <th>Zoom</th>
+          <th>
+            <input type="range" name="points" min="1" max="10" v-model="animationTime" />
+          </th>
+          <th>{{animationTime}}</th>
+        </tr>
+        <tr>
+          <th>Angle Tilt:</th>
+          <th>
+            <input
+              type="range"
+              name="points"
+              min="0"
+              max="50"
+              v-model="angle"
+              @change="changeKeyFrames()"
+            />
+          </th>
+          <th>{{angle}}</th>
+        </tr>
+      </thead>
+    </table>
     <b-carousel
       class="sliderBanner__carousel"
       v-model="slide"
@@ -12,19 +40,19 @@
       @sliding-end="onSlideEnd"
     >
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img src="../assets/slides/slider_1.gif" slot="img" class="d-block img-fluid w-100" />
+        <img src="../../assets/slides/slider_1.gif" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
 
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img src="../assets/slides/slider_2.webp" slot="img" class="d-block img-fluid w-100" />
+        <img src="../../assets/slides/slider_2.webp" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
 
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img src="../assets/slides/slider_3.jpeg" slot="img" class="d-block img-fluid w-100" />
+        <img src="../../assets/slides/slider_3.jpeg" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
 
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img src="../assets/slides/slider_4.jpg" slot="img" class="d-block img-fluid w-100" />
+        <img src="../../assets/slides/slider_4.jpg" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
     </b-carousel>
   </div>
@@ -37,7 +65,9 @@ export default {
       slide: 0,
       sliding: null,
       currentSlide: 0,
-      sliderTimer: undefined
+      sliderTimer: undefined,
+      angle: 20,
+      animationTime: 3
     };
   },
   mounted() {
@@ -103,6 +133,10 @@ export default {
         this.makeSlideAnimation(false);
       }
       this.currentSlide = slide;
+      this.zoomInOut(true);
+      setTimeout(() => {
+        this.zoomInOut(false);
+      }, this.animationTime * 1000);
     },
     onSlideEnd(slide) {
       this.sliding = false;
@@ -112,6 +146,10 @@ export default {
       this.sliderTimer = setTimeout(function() {
         cObj.resetSlider();
       }, 3000);
+      this.zoomInOut(true);
+      setTimeout(() => {
+        this.zoomInOut(false);
+      }, this.animationTime * 1000);
     },
     resetSlider() {
       var cObj = this;
@@ -128,6 +166,45 @@ export default {
       if (cls !== null && cls.length !== 0) {
         for (var i = 0; i < cls.length; i++) {
           var dom = cls[i].classList.remove(clsName);
+        }
+      }
+    },
+    zoomInOut(flag) {
+      console.log(flag);
+      for (var i = 0; i < 4; i++) {
+        document.querySelectorAll(".sliderBanner__carousel--item")[
+          i
+        ].style.animationDuration = flag == true ? this.animationTime : 3 + "s";
+      }
+    },
+    changeKeyFrames() {
+      var ss = document.styleSheets;
+      for (var i = 0; i < ss.length; ++i) {
+        for (var j = 0; j < ss[i].cssRules.length; ++j) {
+          if (
+            (ss[i].cssRules[j].type === window.CSSRule.KEYFRAMES_RULE ||
+              ss[i].cssRules[j].type ===
+                window.CSSRule.WEBKIT_KEYFRAMES_RULE) &&
+            ss[i].cssRules[j].name == "tilteffectsanim"
+          ) {
+            var keyframes = ss[i].cssRules[j];
+            keyframes.deleteRule("25%");
+            keyframes.deleteRule("75%");
+            keyframes.appendRule(
+              "25% { -moz-transform: perspective(1200px) rotateY(" +
+                this.angle +
+                "deg); -webkit-transform: perspective(1200px) rotateY(" +
+                this.angle +
+                "deg); }"
+            );
+            keyframes.appendRule(
+              "75% { -moz-transform:perspective(1200px) rotateY(-" +
+                this.angle +
+                "deg); -webkit-transform: perspective(1200px) rotateY(-" +
+                this.angle +
+                "deg); }"
+            );
+          }
         }
       }
     }

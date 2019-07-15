@@ -375,3 +375,106 @@
         transform: perspective(600px) rotateY(0deg);
     }
 }
+$mobile-width: 320px;
+$small-devices:425px;
+$tablet-width: 768px;
+
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$small-devices - 1px}) {
+    @content;
+  }
+}
+
+
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@keyframes hpbanner {
+
+  0% {
+
+    transform: perspective(600px) rotateY(0deg);
+}
+  25% {
+   transform: perspective(600px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(600px) rotateY(10deg);
+ }
+  75% {
+    transform: perspective(600px) rotateY(-10deg);
+  }
+  100% {
+    transform: perspective(700px) rotateY(0deg);
+  }
+}
+
+
+// MIXIN: Padding
+
+@mixin padding($p-direction, $p-amount) {
+  @if $p-direction == all {
+    padding: $p-amount;
+  } @else {
+    padding-#{$p-direction}: $p-amount;
+  }
+}
+
+// MIXIN: Margin
+
+@mixin margin($m-direction, $m-amount){
+  @if $m-direction == all {
+    margin: $m-amount;
+  } @else {
+    margin-#{$m-direction}: $m-amount;
+  }
+}
+
+@keyframes fpBanner {
+
+  0% {
+
+    transform: perspective(1200px) rotateY(0deg);
+}
+  25% {
+   transform: perspective(1200px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(1200px) rotateY(10deg);
+ }
+  75% {
+    transform: perspective(1200px) rotateY(-10deg);
+  }
+  100% {
+    transform: perspective(1200px) rotateY(0deg);
+  }
+}
+
+@keyframes landingSlideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes landingSlideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
