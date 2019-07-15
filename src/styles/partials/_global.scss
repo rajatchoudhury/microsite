@@ -134,3 +134,21 @@
 .pos--rel{
     position: relative;
 }
+
+.tilteffect {
+    transition: transform 1s;
+    transition-timing-function: linear;
+    animation: hpbanner 6s infinite;
+    }
+
+    .fromTopanim{
+    animation-name: landingSlideDown;
+          animation-duration: 2s;
+          position: relative;
+    }
+
+    .fromBottomanim{
+        animation-name: landingSlideUp;
+          animation-duration: 2s;
+          position: relative;
+    }

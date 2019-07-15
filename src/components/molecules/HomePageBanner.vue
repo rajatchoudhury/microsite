@@ -2,15 +2,15 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 col-sm-12 col-md-12 banner txt-center">
-        <div class="banner__dxp">
+        <div class="banner__dxp pos--rel">
           <span class="banner__textbanner pad-top40">
-            <h4 class="f-8rem banner__textbanner--headerText">DXP</h4>
+            <h4 class="f-8rem banner__textbanner--headerText fromTopanim">DXP</h4>
           </span>
 
           <span class="banner__bltext">
-            <h3 class="f-5rem banner__bltext--paraText">
+            <h3 class="f-5rem banner__bltext--paraText fromBottomanim">
               Lorem Ipsum is simply dummy text of
-              <br />the printing and typesetting industry.
+              the printing and typesetting industry.
             </h3>
           </span>
         </div>

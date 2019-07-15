@@ -2,9 +2,18 @@
     background-color: $bg--blue;
     @extend .w-100;   
     @extend .h100vh;
+    @extend .tilteffect;
+    
+    @include media-breakpoint-between(sm,md) {
+      height: 50vh;
+    }
+    @include  media-breakpoint-between(md,lg){
+      height: 50vh;
+        }
    
     &__textbanner {
       color: $text--white;
+      
       @include media-breakpoint-between(sm,md) {
         &--headerText{
             font-size: 50pt;
@@ -26,26 +35,39 @@
       @include media-breakpoint-between(sm,md) {
         &--paraText{
             font-size: 1.1rem;
+           
+  
           }
       }
 
       @include  media-breakpoint-between(md,lg){
         &--paraText{
             font-size: 1.1rem;
+            max-width: 50%;
           }
       }
 
       @include  media-breakpoint-up(xl){
         &--paraText{
             font-size: 2rem;
+            max-width: 50%;
           }
       }
+      &--paraText {
+        margin-left: auto;
+        margin-right: auto;
+    }
     }
     &__dxp {
-        @extend .pos--rel;
           top: 30%;
+         
    
     }
+    &__dxp:hover{
+      transform: scale(1.2);
+      transition: transform .2s;
+    }
+    
     
 
   }

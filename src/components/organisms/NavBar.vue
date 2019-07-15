@@ -4,6 +4,7 @@ import TextField from "../atoms/test";
 import AppLogo from "../atoms/AppLogo";
 import HorizontalNav from "../molecules/HorizontalNav";
 import HomePageBanner from "../molecules/HomePageBanner";
+import gradientBanner from "../molecules/gradientBanner";
 
 export default {
   name: "NavBar",

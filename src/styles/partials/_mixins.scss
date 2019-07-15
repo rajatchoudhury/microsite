@@ -317,3 +317,41 @@ $desktop-width: 1024px;
     @content;
   }
 }
+
+@keyframes hpbanner {
+
+  0% {
+
+    transform: perspective(600px) rotateY(0deg);
+}
+  25% {
+   transform: perspective(600px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(600px) rotateY(10deg);
+ }
+  75% {
+    transform: perspective(600px) rotateY(-10deg);
+  }
+  100% {
+    transform: perspective(700px) rotateY(0deg);
+  }
+}
+
+
+@keyframes landingSlideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes landingSlideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
