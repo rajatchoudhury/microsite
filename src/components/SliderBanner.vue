@@ -12,34 +12,19 @@
       @sliding-end="onSlideEnd"
     >
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img
-          src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg"
-          slot="img"
-          class="d-block img-fluid w-100"
-          width="1024"
-          height="480"
-        />
+        <img src="../assets/slides/slide_1.png" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
 
-      <b-carousel-slide
-        class="sliderBanner__carousel--item"
-        img-src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg"
-      ></b-carousel-slide>
-
-      <b-carousel-slide
-        class="sliderBanner__carousel--item"
-        img-src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg"
-      ></b-carousel-slide>
+      <b-carousel-slide class="sliderBanner__carousel--item">
+        <img src="../assets/slides/slide_2.png" slot="img" class="d-block img-fluid w-100" />
+      </b-carousel-slide>
 
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img
-          slot="img"
-          class="d-block img-fluid w-100"
-          width="1024"
-          height="480"
-          src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg"
-          alt="image slot"
-        />
+        <img src="../assets/slides/slide_1.png" slot="img" class="d-block img-fluid w-100" />
+      </b-carousel-slide>
+
+      <b-carousel-slide class="sliderBanner__carousel--item">
+        <img src="../assets/slides/slide_2.png" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
     </b-carousel>
   </div>
