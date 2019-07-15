@@ -40,12 +40,12 @@
        @include media-breakpoint-between(sm,md) {
    
         text-align: $txt-left;
-        font-size: 18pt;
+        font-size: $ft18;
         font-weight: 700;
        
        }
        @include  media-breakpoint-between(md,lg){
-        font-size: 20pt;
+        font-size: $ft20;
         margin: 4px;
         
        }
@@ -63,18 +63,18 @@
    &__fpl2{
     @include media-breakpoint-between(sm,md) {
         top: 8em;
-        text-align: left;
-        font-size: 12pt;
+        text-align: $txt-left;
+        font-size: $ft12;
         color: $bg--cyan;
         
     }
     @include  media-breakpoint-between(md,lg){
-        font-size: 12pt;
+        font-size: $ft12;
         padding: 5px;
         color: $bg--cyan;
        }
        @include  media-breakpoint-only(xl) {
-        font-size: 15pt;
+        font-size: $ft15;
         padding: 5px;
         color: $bg--cyan;
            
@@ -82,8 +82,8 @@
     &--fpl2text {
         @include media-breakpoint-between(sm,md) {
             top: 8em;
-            text-align: left;
-            font-size: 12pt;
+            text-align: $txt-left;
+            font-size: $ft12;
             margin: 0;
             
         }
