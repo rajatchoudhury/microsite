@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--<router-view/>-->
-    <HelloWorld />
+    <SliderBanner />
   </div>
 </template>
 
@@ -9,11 +9,11 @@
 @import "./styles/main";
 </style>
 <script>
-import HelloWorld from "@/components/SliderBanner.vue";
+import SliderBanner from "@/components/SliderBanner.vue";
 export default {
   name: "App",
   components: {
-    HelloWorld
+    SliderBanner
   }
 };
 </script>
