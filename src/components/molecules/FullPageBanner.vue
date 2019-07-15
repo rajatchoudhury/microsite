@@ -1,35 +1,64 @@
 <template>
-  <div>
-    Angle Tilt:
-    <input
-      type="range"
-      name="points"
-      min="0"
-      max="50"
-      v-model="angle"
-      @change="changeKeyFrames()"
-    />
-    <br />Title and description:
-    <label>
-      Left Text
-      <input type="radio" id="one" value="aligncontentleft" v-model="picked" />
-    </label>&nbsp;
-    <label>
-      right Text
-      <input type="radio" id="two" value="aligncontentright" v-model="picked" />
-    </label>&nbsp;
+  <div class="fullpagebanner">
     <br />
-    <div class="container-fluid fpbanner" id="fpbanner">
+    <table>
+      <thead>
+        <tr>
+          <th>Zoom</th>
+          <th>
+            <input
+              type="range"
+              name="points"
+              min="3.5"
+              max="5.5"
+              step="0.1"
+              v-model="textscale"
+              @change="zoomInOut()"
+            />
+            {{textscale}}
+          </th>
+        </tr>
+        <tr>
+          <th>Angle Tilt:</th>
+          <th>
+            <input
+              type="range"
+              name="points"
+              min="0"
+              max="50"
+              v-model="angle"
+              @change="changeKeyFrames()"
+            />
+            {{angle}}
+          </th>
+        </tr>
+        <tr>
+          <th>Title and description:</th>
+          <th>
+            <label>
+              Left Text
+              <input type="radio" id="one" value="aligncontentleft" v-model="picked" />
+            </label>&nbsp;
+            <label>
+              right Text
+              <input type="radio" id="two" value="aligncontentright" v-model="picked" />
+            </label>
+          </th>
+        </tr>
+      </thead>
+    </table>
+    <div class="container-fluid fpbanner">
       <div class="row">
         <div class="col-md-12 fpbanner__text" :class="picked">
           <div class="fpbanner__text--para pos--rel">
-            <h3 class="fpbanner__heading f-3rem">
-              <span
-                class="fpbanner__heading--ptext paddLR5 m10"
-              >Lorem Ipsum is simply dummy text of the printing.</span>
+            <h3 class="fpbanner__heading f-3rem fromTopanim">
+              <span class="fpbanner__heading--ptext paddLR5 m10">
+                Lorem Ipsum is simply dummy text of
+                the printing.
+              </span>
             </h3>
 
-            <h2 class="fpbanner__fpl2 f-2rem">
+            <h2 class="fpbanner__fpl2 f-2rem fromBottomanim">
               <span class="fpbanner__fpl2--fpl2text paddTB20 m10">
                 Lorem Ipsum is simply dummy text of
                 the printing and typesetting industry.
@@ -49,7 +78,8 @@ export default {
   data() {
     return {
       picked: "aligncontentleft",
-      angle: 10
+      angle: 10,
+      textscale: 3.5
     };
   },
   mounted() {
@@ -82,6 +112,10 @@ export default {
           }
         }
       }
+    },
+    zoomInOut() {
+      document.querySelectorAll(".fpbanner__heading--ptext")[0].style.fontSize =
+        this.textscale + "rem";
     }
   }
 };
