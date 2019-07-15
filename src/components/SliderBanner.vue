@@ -12,19 +12,19 @@
       @sliding-end="onSlideEnd"
     >
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img src="../assets/slides/slide_1.png" slot="img" class="d-block img-fluid w-100" />
+        <img src="../assets/slides/slider_1.gif" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
 
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img src="../assets/slides/slide_2.png" slot="img" class="d-block img-fluid w-100" />
+        <img src="../assets/slides/slider_2.webp" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
 
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img src="../assets/slides/slide_1.png" slot="img" class="d-block img-fluid w-100" />
+        <img src="../assets/slides/slider_3.jpeg" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
 
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img src="../assets/slides/slide_2.png" slot="img" class="d-block img-fluid w-100" />
+        <img src="../assets/slides/slider_4.jpg" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
     </b-carousel>
   </div>
@@ -45,7 +45,6 @@ export default {
   },
   methods: {
     makeSlideAnimation(isNext) {
-      alert("" + isNext);
       if (isNext) {
         var cSlide = document.querySelectorAll(
           ".sliderBanner__carousel--item.active"
