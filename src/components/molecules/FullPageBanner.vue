@@ -53,8 +53,7 @@
           <div class="fpbanner__text--para pos--rel">
             <h3 class="fpbanner__heading f-3rem fromTopanim">
               <span class="fpbanner__heading--ptext paddLR5 m10">
-                Lorem Ipsum is simply dummy text of
-                the printing.
+                Lorem Ipsum
               </span>
             </h3>
 
