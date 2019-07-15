@@ -1,6 +1,5 @@
 
 <script>
-import TextField from "../atoms/test";
 import AppLogo from "../atoms/AppLogo";
 import HorizontalNav from "../molecules/HorizontalNav";
 import HomePageBanner from "../molecules/HomePageBanner";
@@ -8,7 +7,7 @@ import gradientBanner from "../molecules/gradientBanner";
 import CustomInput from "../molecules/CustomInput";
 import FullPageBanner from "../molecules/FullPageBanner";
 export default {
-  name: "NavBar",
+  name: "ListOfComponent",
   render(createElement) {
     return (
       <div>

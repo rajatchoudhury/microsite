@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <NavBar />
+    <ListOfComponent />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import NavBar from "@/components/organisms/NavBar.vue";
+import ListOfComponent from "@/components/organisms/ListOfComponent.vue";
 export default {
   name: "home",
   components: {
-    NavBar
+    ListOfComponent
   }
 };
 </script>

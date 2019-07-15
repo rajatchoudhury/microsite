@@ -74,6 +74,11 @@
   table {
     width: 300px;
     margin: 10px;
+    th.herotitle {
+      background: $text--grey;
+      color: $text--white;
+      border:1px solid $text--grey;
+    }
     th {
       padding: 10px;
       border: 1px solid;

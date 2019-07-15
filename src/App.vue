@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <!-- <router-view /> -->
-    <!-- <HelloWorld /> -->
-    <NavBar />
+    <ListOfComponent />
   </div>
 </template>
 
@@ -10,11 +9,11 @@
 @import "./styles/main";
 </style>
 <script>
-import NavBar from "@/components/organisms/NavBar.vue";
+import ListOfComponent from "@/components/organisms/ListOfComponent.vue";
 export default {
   name: "App",
   components: {
-    NavBar
+    ListOfComponent
   }
 };
 </script>

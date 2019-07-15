@@ -4,6 +4,9 @@
     <table>
       <thead>
         <tr>
+          <th colspan="3" class="herotitle">Hero Banner</th>
+        </tr>
+        <tr>
           <th>Zoom</th>
           <th>
             <input
@@ -15,8 +18,8 @@
               v-model="textscale"
               @change="zoomInOut()"
             />
-            {{textscale}}
           </th>
+          <th>{{textscale}}</th>
         </tr>
         <tr>
           <th>Angle Tilt:</th>
@@ -29,12 +32,12 @@
               v-model="angle"
               @change="changeKeyFrames()"
             />
-            {{angle}}
           </th>
+          <th>{{angle}}</th>
         </tr>
         <tr>
           <th>Title and description:</th>
-          <th>
+          <th colspan="2">
             <label>
               Left Text
               <input type="radio" id="one" value="aligncontentleft" v-model="picked" />
