@@ -5,13 +5,13 @@ import AppLogo from "../atoms/AppLogo";
 import HorizontalNav from "../molecules/HorizontalNav";
 import HomePageBanner from "../molecules/HomePageBanner";
 import gradientBanner from "../molecules/gradientBanner";
-
+import CustomInput from "../molecules/CustomInput";
 export default {
   name: "NavBar",
   render(createElement) {
     return (
       <div>
-        <HomePageBanner />{" "}
+        <CustomInput />{" "}
       </div>
     );
   },

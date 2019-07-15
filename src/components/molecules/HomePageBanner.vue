@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
+     
       <div class="col-lg-12 col-sm-12 col-md-12 banner txt-center">
         <div class="banner__dxp pos--rel">
           <span class="banner__textbanner pad-top40">
@@ -20,7 +21,10 @@
 </template>
 
 <script>
-export default {};
+
+export default {
+  
+};
 </script>
 
 
