@@ -3,14 +3,14 @@
     <div class="row">
       <div class="col-md-12 fpbanner__text aligncontentright">
         <div class="fpbanner__text--para pos--rel">
-          <h3 class="fpbanner__heading f-3rem">
+          <h3 class="fpbanner__heading f-3rem fromTopanim">
             <span class="fpbanner__heading--ptext paddLR5 m10">
               Lorem Ipsum is simply dummy text of
               the printing.
             </span>
           </h3>
 
-          <h2 class="fpbanner__fpl2 f-2rem">
+          <h2 class="fpbanner__fpl2 f-2rem fromBottomanim">
             <span class="fpbanner__fpl2--fpl2text paddTB20 m10">
               Lorem Ipsum is simply dummy text of
               the printing and typesetting industry.
