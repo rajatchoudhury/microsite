@@ -45,6 +45,7 @@ export default {
   },
   methods: {
     makeSlideAnimation(isNext) {
+      alert("" + isNext);
       if (isNext) {
         var cSlide = document.querySelectorAll(
           ".sliderBanner__carousel--item.active"
@@ -72,7 +73,7 @@ export default {
           var domElements = document.querySelectorAll(
             ".sliderBanner__carousel--item"
           );
-          domElements[domElements.length].classList.add("zoomin--left");
+          domElements[domElements.length - 1].classList.add("zoomin--left");
         }
       }
     },
