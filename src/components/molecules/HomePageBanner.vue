@@ -1,5 +1,5 @@
 <template>
-  <div class="homepagebanner">
+  <div>
     <br />
     <table>
       <thead>
@@ -12,8 +12,9 @@
             <input
               type="range"
               name="points"
-              min="1"
-              max="10"
+              min="1.2"
+              max="1.6"
+              step="0.2"
               v-model="textscale"
               @change="zoomInOut()"
             />
@@ -21,22 +22,23 @@
           <th>{{textscale}}</th>
         </tr>
         <tr>
-          <th>Angle Tilt:</th>
+          <th>Panorama Speed:</th>
           <th>
             <input
               type="range"
               name="points"
-              min="0"
-              max="50"
+              min="30"
+              max="80"
+              step="10"
               v-model="angle"
-              @change="changeKeyFrames()"
+              @change="setIntervalAnimationZero(50, false, true, angle) "
             />
           </th>
           <th>{{angle}}</th>
         </tr>
       </thead>
     </table>
-    <div class="container-fluid">
+    <div class="container-fluid homepagebanner">
       <div class="row">
         <div class="col-lg-12 col-sm-12 col-md-12 banner txt-center">
           <div class="banner__dxp pos--rel">
@@ -62,25 +64,70 @@ export default {
   components: {},
   data() {
     return {
-      textscale: 0,
-      angle: 10
+      textscale: 1.2,
+      angle: 50
     };
   },
   mounted() {
-    this.zoomInOut();
+    this.zoomInOut(true);
   },
   methods: {
-    zoomInOut() {
-      setTimeout(function() {
-        document
-          .querySelectorAll(".homepagebanner")[0]
-          .classList.add("zoom-effect");
+    zoomInOut(isFirst) {
+      var zoom = "zoom-effect";
+      if (this.textscale == 1.2) {
+        zoom = "zoom-effect";
+      } else if (this.textscale == 1.4) {
+        zoom = "zoom-effect_steptwo";
+      } else if (this.textscale == 1.6) {
+        zoom = "zoom-effect_stepthree";
+      }
+      document
+        .querySelectorAll(".homepagebanner")[0]
+        .classList.remove("zoom-outeffect");
+      setTimeout(() => {
+        document.querySelectorAll(".homepagebanner")[0].classList.add(zoom);
       }, 500);
-      setTimeout(function() {
+      setTimeout(() => {
+        document.querySelectorAll(".homepagebanner")[0].classList.remove(zoom);
         document
           .querySelectorAll(".homepagebanner")[0]
           .classList.add("zoom-outeffect");
       }, 2000);
+      setTimeout(() => {
+        if (isFirst) {
+          this.setIntervalAnimationZero(50, false, true, 50);
+        }
+      }, 3000);
+    },
+    setIntervalAnimationZero(count, isFirstInt, isSecondInt, speed) {
+      var counter = count;
+      var timer = "";
+      var timer = setInterval(() => {
+        var tiltbanner = document.querySelectorAll(".banner")[0];
+        counter--;
+        if (counter == 0) {
+          clearInterval(timer);
+          if (isSecondInt) {
+            this.setIntervalAnimation(counter, false, true, speed);
+          }
+        }
+        tiltbanner.style.backgroundPosition = counter + "% 0";
+      }, speed);
+    },
+    setIntervalAnimation(count, isFirstInt, isSecondInt, speed) {
+      var counter = count;
+      var timer = "";
+      var timer = setInterval(() => {
+        var tiltbanner = document.querySelectorAll(".banner")[0];
+        counter++;
+        if (counter == 100) {
+          clearInterval(timer);
+          if (isFirstInt) {
+            this.setIntervalAnimationZero(counter, false, false, speed);
+          }
+        }
+        tiltbanner.style.backgroundPosition = counter + "% 0";
+      }, speed);
     },
     changeKeyFrames() {
       var ss = document.styleSheets;

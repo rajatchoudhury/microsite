@@ -20,7 +20,7 @@
        &--para{
         top: 20em;
         width: 50%;
-        color: $bg--black;
+        color: $bg--white;
         @include media-breakpoint-between(sm,md) {
             top: 50%;
             text-align: $txt-left;
@@ -82,6 +82,7 @@
            
     }
     &--fpl2text {
+        display: inherit;
         @include media-breakpoint-between(sm,md) {
             top: 8em;
             text-align: $txt-left;

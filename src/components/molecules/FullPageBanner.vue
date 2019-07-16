@@ -1,5 +1,5 @@
 <template>
-  <div class="fullpagebanner">
+  <div class>
     <br />
     <table>
       <thead>
@@ -12,9 +12,9 @@
             <input
               type="range"
               name="points"
-              min="3.5"
-              max="5.5"
-              step="0.1"
+              min="1.2"
+              max="1.6"
+              step="0.2"
               v-model="textscale"
               @change="zoomInOut()"
             />
@@ -22,15 +22,16 @@
           <th>{{textscale}}</th>
         </tr>
         <tr>
-          <th>Angle Tilt:</th>
+          <th>Panorama Speed:</th>
           <th>
             <input
               type="range"
               name="points"
-              min="0"
-              max="50"
+              min="30"
+              max="80"
+              step="10"
               v-model="angle"
-              @change="changeKeyFrames()"
+              @change="setIntervalAnimationZero(angle, false, true, angle) "
             />
           </th>
           <th>{{angle}}</th>
@@ -50,16 +51,16 @@
         </tr>
       </thead>
     </table>
-    <div class="container-fluid fpbanner">
+    <div class="container-fluid fpbanner fullpagebanner">
       <div class="row">
         <div class="col-md-12 fpbanner__text" :class="picked">
           <div class="fpbanner__text--para pos--rel">
             <h3 class="fpbanner__heading f-3rem fromTopanim">
-              <span class="fpbanner__heading--ptext paddLR5 m10">Lorem Ipsum</span>
+              <span class="fpbanner__heading--ptext m10">Lorem Ipsum</span>
             </h3>
 
             <h2 class="fpbanner__fpl2 f-2rem fromBottomanim">
-              <span class="fpbanner__fpl2--fpl2text paddTB20 m10">
+              <span class="fpbanner__fpl2--fpl2text m10">
                 Lorem Ipsum is simply dummy text of
                 the printing and typesetting industry.
                 Lorem Ipsum is simply dummy text of
@@ -78,13 +79,13 @@ export default {
   data() {
     return {
       picked: "aligncontentleft",
-      angle: 10,
-      textscale: 3.5
+      angle: 50,
+      textscale: 1.2
     };
   },
   mounted() {
     this.changeKeyFrames();
-    this.zoomInOut();
+    this.zoomInOut(true, 500);
   },
   methods: {
     changeKeyFrames() {
@@ -114,22 +115,34 @@ export default {
         }
       }
     },
-    zoomInOut() {
+    zoomInOut(isFirst) {
+      var zoom = "zoom-effect";
+      if (this.textscale == 1.2) {
+        zoom = "zoom-effect";
+      } else if (this.textscale == 1.4) {
+        zoom = "zoom-effect_steptwo";
+      } else if (this.textscale == 1.6) {
+        zoom = "zoom-effect_stepthree";
+      }
+      document
+        .querySelectorAll(".fullpagebanner")[0]
+        .classList.remove("zoom-outeffect");
       setTimeout(() => {
-        document
-          .querySelectorAll(".fullpagebanner")[0]
-          .classList.add("zoom-effect");
+        document.querySelectorAll(".fullpagebanner")[0].classList.add(zoom);
       }, 500);
       setTimeout(() => {
+        document.querySelectorAll(".fullpagebanner")[0].classList.remove(zoom);
         document
           .querySelectorAll(".fullpagebanner")[0]
           .classList.add("zoom-outeffect");
       }, 2000);
       setTimeout(() => {
-        this.setIntervalAnimationZero(50, false, true);
+        if (isFirst) {
+          this.setIntervalAnimationZero(50, false, true, 50);
+        }
       }, 3000);
     },
-    setIntervalAnimationZero(count, isFirstInt, isSecondInt) {
+    setIntervalAnimationZero(count, isFirstInt, isSecondInt, speed) {
       var counter = count;
       var timer = "";
       var timer = setInterval(() => {
@@ -138,13 +151,13 @@ export default {
         if (counter == 0) {
           clearInterval(timer);
           if (isSecondInt) {
-            this.setIntervalAnimation(counter, false, true);
+            this.setIntervalAnimation(counter, false, true, speed);
           }
         }
         tiltbanner.style.backgroundPosition = counter + "% 0";
-      }, 50);
+      }, speed);
     },
-    setIntervalAnimation(count, isFirstInt, isSecondInt) {
+    setIntervalAnimation(count, isFirstInt, isSecondInt, speed) {
       var counter = count;
       var timer = "";
       var timer = setInterval(() => {
@@ -153,11 +166,11 @@ export default {
         if (counter == 100) {
           clearInterval(timer);
           if (isFirstInt) {
-            this.setIntervalAnimationZero(counter, false, false);
+            this.setIntervalAnimationZero(counter, false, false, speed);
           }
         }
         tiltbanner.style.backgroundPosition = counter + "% 0";
-      }, 50);
+      }, speed);
     }
   }
 };

@@ -1,6 +1,11 @@
 .banner {
     background-color: $bg--blue;
     background-image: url('./assets/7T9364v.gif');
+    background-size: 150%;
+    @extend .bg-image;
+    //@extend .tilteffect;
+    width: 100%;
+    background-position: 50% 0;
     @extend .w-100;   
     @extend .h100vh;
     // @extend .tilteffect;
@@ -64,10 +69,10 @@
          
    
     }
-    &__dxp:hover{
-      transform: scale(1.2);
-      transition: transform .2s;
-    }
+    // &__dxp:hover{
+    //   transform: scale(1.2);
+    //   transition: transform .2s;
+    // }
     
     
 
