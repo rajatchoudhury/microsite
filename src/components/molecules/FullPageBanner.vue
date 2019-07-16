@@ -55,9 +55,7 @@
         <div class="col-md-12 fpbanner__text" :class="picked">
           <div class="fpbanner__text--para pos--rel">
             <h3 class="fpbanner__heading f-3rem fromTopanim">
-              <span class="fpbanner__heading--ptext paddLR5 m10">
-                Lorem Ipsum
-              </span>
+              <span class="fpbanner__heading--ptext paddLR5 m10">Lorem Ipsum</span>
             </h3>
 
             <h2 class="fpbanner__fpl2 f-2rem fromBottomanim">
@@ -86,6 +84,7 @@ export default {
   },
   mounted() {
     this.changeKeyFrames();
+    this.zoomInOut();
   },
   methods: {
     changeKeyFrames() {
@@ -116,8 +115,16 @@ export default {
       }
     },
     zoomInOut() {
-      document.querySelectorAll(".fpbanner__heading--ptext")[0].style.fontSize =
-        this.textscale + "rem";
+      setTimeout(function() {
+        document
+          .querySelectorAll(".fullpagebanner")[0]
+          .classList.add("zoom-effect");
+      }, 500);
+      setTimeout(function() {
+        document
+          .querySelectorAll(".fullpagebanner")[0]
+          .classList.add("zoom-outeffect");
+      }, 2000);
     }
   }
 };

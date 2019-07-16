@@ -5,7 +5,7 @@
     background-image: url('./assets/Zensar-Eon-01.jpg');
     background-size: cover;
     @extend .bg-image;
-    @extend .tilteffect;
+    //@extend .tilteffect;
     
     @include media-breakpoint-between(sm,md) {
         height: 50vh;

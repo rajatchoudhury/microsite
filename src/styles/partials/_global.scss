@@ -349,3 +349,22 @@ animation: fpBanner 10s infinite;
           animation-duration: 2s;
           position: relative;
     }
+
+    .zoom-effect {
+        -ms-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+        transition: transform 2s;
+      }
+      
+      .zoom-outeffect {
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        transition: transform 2s;
+      }
+    

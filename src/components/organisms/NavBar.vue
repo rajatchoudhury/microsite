@@ -1,20 +1,19 @@
 
 <script>
+import TextField from "../atoms/test";
 import AppLogo from "../atoms/AppLogo";
 import HorizontalNav from "../molecules/HorizontalNav";
 import HomePageBanner from "../molecules/HomePageBanner";
 import gradientBanner from "../molecules/gradientBanner";
 import CustomInput from "../molecules/CustomInput";
 import FullPageBanner from "../molecules/FullPageBanner";
-import SliderBanner from "../molecules/SliderBanner.vue";
 export default {
-  name: "ListOfComponent",
+  name: "NavBar",
   render(createElement) {
     return (
       <div>
-        <HomePageBanner />
+        <CustomInput />
         <FullPageBanner />
-        <SliderBanner />
       </div>
     );
   },

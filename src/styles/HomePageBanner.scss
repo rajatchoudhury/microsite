@@ -3,7 +3,7 @@
     background-image: url('./assets/7T9364v.gif');
     @extend .w-100;   
     @extend .h100vh;
-    @extend .tilteffect;
+    // @extend .tilteffect;
     
     @include media-breakpoint-between(sm,md) {
       height: 50vh;
