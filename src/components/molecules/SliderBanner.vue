@@ -40,7 +40,7 @@
       @sliding-end="onSlideEnd"
     >
       <b-carousel-slide class="sliderBanner__carousel--item">
-        <img src="../../assets/slides/slider_1.gif" slot="img" class="d-block img-fluid w-100" />
+        <img src="../../assets/slides/slider_2.webp" slot="img" class="d-block img-fluid w-100" />
       </b-carousel-slide>
 
       <b-carousel-slide class="sliderBanner__carousel--item">
@@ -67,10 +67,21 @@ export default {
       currentSlide: 0,
       sliderTimer: undefined,
       angle: 20,
-      animationTime: 3
+      animationTime: 3,
+      slidersElements: undefined,
+      sliderImages: [
+        "slides/slider_1.gif",
+        "slides/slider_2.webp",
+        "slides/slider_3.jpeg",
+        "slides/slider_4.jpg"
+      ]
     };
   },
+  created() {},
   mounted() {
+    this.slidersElements = document.querySelectorAll(
+      ".sliderBanner__carousel--item"
+    );
     this.resetSlider();
   },
   methods: {
@@ -85,9 +96,7 @@ export default {
         if (cSlide.nextSibling !== null) {
           cSlide.nextSibling.classList.add("zoomin--right");
         } else {
-          document
-            .querySelectorAll(".sliderBanner__carousel--item")[0]
-            .classList.add("zoomin--right");
+          this.slidersElements[0].classList.add("zoomin--right");
         }
       } else {
         var cSlide = document.querySelectorAll(
@@ -99,10 +108,9 @@ export default {
         if (cSlide.previousSibling !== null) {
           cSlide.previousSibling.classList.add("zoomin--left");
         } else {
-          var domElements = document.querySelectorAll(
-            ".sliderBanner__carousel--item"
+          this.slidersElements[this.slidersElements.length - 1].classList.add(
+            "zoomin--left"
           );
-          domElements[domElements.length - 1].classList.add("zoomin--left");
         }
       }
     },
@@ -112,9 +120,7 @@ export default {
         clearTimeout(this.sliderTimer);
         clsObj.resetSlider();
       }
-      var totalSlide = document.querySelectorAll(
-        ".sliderBanner__carousel--item"
-      ).length;
+      var totalSlide = this.slidersElements.length;
       this.sliding = true;
       var isNextBtn = true;
 
@@ -133,33 +139,26 @@ export default {
         this.makeSlideAnimation(false);
       }
       this.currentSlide = slide;
+      this.resetClassNames("tilteffectY");
       this.zoomInOut(true);
-      setTimeout(() => {
-        this.zoomInOut(false);
-      }, this.animationTime * 1000);
     },
     onSlideEnd(slide) {
       this.sliding = false;
-      this.resetClassNames("tilteffectY");
-      var cObj = this;
-
-      this.sliderTimer = setTimeout(function() {
-        cObj.resetSlider();
-      }, 3000);
-      this.zoomInOut(true);
-      setTimeout(() => {
-        this.zoomInOut(false);
+      this.sliderTimer = setTimeout(() => {
+        this.resetSlider();
       }, this.animationTime * 1000);
     },
     resetSlider() {
-      var cObj = this;
-      var cSlide = document
+      this.resetClassNames("zoomin--right");
+      this.resetClassNames("zoomout--right");
+      this.resetClassNames("zoomin--left");
+      this.resetClassNames("zoomout--left");
+      for (var i = 0; i < this.slidersElements.length - 1; i++) {
+        this.slidersElements[i].style.animationDuration = "5s";
+      }
+      document
         .querySelectorAll(".sliderBanner__carousel--item.active")[0]
         .classList.add("tilteffectY");
-      cObj.resetClassNames("zoomin--right");
-      cObj.resetClassNames("zoomout--right");
-      cObj.resetClassNames("zoomin--left");
-      cObj.resetClassNames("zoomout--left");
     },
     resetClassNames(clsName) {
       var cls = document.querySelectorAll("." + clsName);
@@ -170,11 +169,10 @@ export default {
       }
     },
     zoomInOut(flag) {
-      console.log(flag);
-      for (var i = 0; i < 4; i++) {
+      for (var i = 0; i < this.slidersElements.length; i++) {
         document.querySelectorAll(".sliderBanner__carousel--item")[
           i
-        ].style.animationDuration = flag == true ? this.animationTime : 3 + "s";
+        ].style.animationDuration = this.animationTime + "s";
       }
     },
     changeKeyFrames() {
