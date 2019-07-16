@@ -1,12 +1,13 @@
 .fpbanner {
     
-    @extend .w-100;   
+    // @extend .w-100;   
     @extend .h100vh;
     background-image: url('./assets/Zensar-Eon-01.jpg');
-    background-size: cover;
+    background-size: 150%;
     @extend .bg-image;
     //@extend .tilteffect;
-    
+    width: 100%;
+    background-position: 50% 0;
     @include media-breakpoint-between(sm,md) {
         height: 50vh;
     }

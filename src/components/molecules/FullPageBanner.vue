@@ -115,16 +115,49 @@ export default {
       }
     },
     zoomInOut() {
-      setTimeout(function() {
+      setTimeout(() => {
         document
           .querySelectorAll(".fullpagebanner")[0]
           .classList.add("zoom-effect");
       }, 500);
-      setTimeout(function() {
+      setTimeout(() => {
         document
           .querySelectorAll(".fullpagebanner")[0]
           .classList.add("zoom-outeffect");
       }, 2000);
+      setTimeout(() => {
+        this.setIntervalAnimationZero(50, false, true);
+      }, 3000);
+    },
+    setIntervalAnimationZero(count, isFirstInt, isSecondInt) {
+      var counter = count;
+      var timer = "";
+      var timer = setInterval(() => {
+        var tiltbanner = document.querySelectorAll(".fpbanner")[0];
+        counter--;
+        if (counter == 0) {
+          clearInterval(timer);
+          if (isSecondInt) {
+            this.setIntervalAnimation(counter, false, true);
+          }
+        }
+        tiltbanner.style.backgroundPosition = counter + "% 0";
+      }, 50);
+    },
+    setIntervalAnimation(count, isFirstInt, isSecondInt) {
+      var counter = count;
+      var timer = "";
+      var timer = setInterval(() => {
+        var tiltbanner = document.querySelectorAll(".fpbanner")[0];
+        counter++;
+        if (counter == 100) {
+          clearInterval(timer);
+          if (isFirstInt) {
+            this.setIntervalAnimationZero(counter, false, false);
+          }
+        }
+        tiltbanner.style.backgroundPosition = counter + "% 0";
+      }, 50);
     }
   }
 };
