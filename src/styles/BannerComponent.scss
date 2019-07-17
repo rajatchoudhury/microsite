@@ -1,0 +1,79 @@
+.fpbanner {
+    @extend .h100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    &__img {
+        width: 150%;
+        @extend .h100vh;
+        position: absolute;
+        left: -25%;
+        
+    }
+    @include media-breakpoint-between(sm,md) {
+        height: 50vh;
+    }
+    @include  media-breakpoint-between(md,lg){
+        height: 50vh;
+    }
+    &__row {
+        height: inherit;
+    }
+    &__container{
+        width: 50%;
+        color: $bg--white;
+        @include media-breakpoint-between(sm,md) {
+            top: 50%;
+            text-align: $txt-left;
+            width: 100%;
+        }
+        @include  media-breakpoint-between(md,lg){
+            top: 50%;
+            text-align: $txt-left;
+            width: 35%;
+        }
+    }
+    &--header{
+        @include media-breakpoint-between(sm,md) {
+            text-align: $txt-left;
+            font-size: $ft18;
+            font-weight: 700;
+        }
+        @include  media-breakpoint-between(md,lg){
+            font-size: $ft20;
+            margin: 4px;
+        }
+    }
+    &--text{
+        @include media-breakpoint-between(sm,md) {
+            margin: 0;
+        }
+    }
+   
+    &__subheader{
+        @include media-breakpoint-between(sm,md) {
+            text-align: $txt-left;
+            font-size: $ft12;
+            color: $bg--black;
+        }
+        @include  media-breakpoint-between(md,lg){
+            font-size: $ft12;
+            padding: 5px;
+            color: $bg--black;
+        }
+        @include  media-breakpoint-only(xl) {
+            font-size: $ft15;
+            padding: 5px;
+            color: $bg--black;
+        }
+        &--text {
+            display: inherit;
+            @include media-breakpoint-between(sm,md) {
+                text-align: $txt-left;
+                font-size: $ft12;
+                margin: 0;
+            }
+        }
+    }
+}

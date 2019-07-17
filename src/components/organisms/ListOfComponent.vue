@@ -4,7 +4,7 @@ import AppLogo from "../atoms/AppLogo";
 import HomePageBanner from "../molecules/HomePageBanner";
 import gradientBanner from "../molecules/gradientBanner";
 import CustomInput from "../molecules/CustomInput";
-import FullPageBanner from "../molecules/FullPageBanner";
+import BannerComponent from "../molecules/BannerComponent";
 import SliderBanner from "../molecules/SliderBanner.vue";
 import VideoCarousel from "../molecules/VideoCarousel.vue";
 export default {
@@ -13,7 +13,7 @@ export default {
     return (
       <div>
         <HomePageBanner />
-        <FullPageBanner />
+        <BannerComponent />
         <SliderBanner />
         <VideoCarousel />
       </div>

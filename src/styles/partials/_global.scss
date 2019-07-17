@@ -310,6 +310,26 @@
     animation: hpbanner 6s infinite;
     }
 
+// flex css 
+.bottom-left {
+    @include flexbox;
+    @include align-items(flex-end);
+}
+
+.bottom-right {
+    @include flexbox;
+    @include align-items(flex-end);
+    @include justify-content(flex-end);
+}
+
+.center-center {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+    text-align: center;
+}
+
+
 .aligncontentright {
     @include flexbox;
     @include flex-direction(column);
