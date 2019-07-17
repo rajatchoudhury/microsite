@@ -34,7 +34,7 @@
         </video>
         <div class="text" :class="picked">
           Title
-          <span class="desc">Lorem ipsum dolor sit amet</span>
+          <span class="desc">Lorem ipsum dolor sit ctetur adipisc ipsum dingsbums</span>
         </div>
       </div>
 
@@ -50,7 +50,7 @@
         </video>
         <div class="text" :class="picked">
           Title
-          <span class="desc">Lorem ipsum dolor sit amet</span>
+          <span class="desc">Lorem ipsum dolor sit ctetur adipisc ipsum dingsbums</span>
         </div>
       </div>
 
@@ -66,7 +66,7 @@
         </video>
         <div class="text" :class="picked">
           Title
-          <span class="desc">Lorem ipsum dolor sit amet</span>
+          <span class="desc">Lorem ipsum dolor sit ctetur adipisc ipsum dingsbums</span>
         </div>
       </div>
 

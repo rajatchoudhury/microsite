@@ -10,7 +10,9 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.26",
+    "swiper": "^4.5.0",
     "vue": "^2.6.10",
+    "vue-awesome-swiper": "^3.1.3",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

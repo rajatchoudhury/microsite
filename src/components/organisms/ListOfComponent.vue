@@ -8,6 +8,8 @@ import CustomInput from "../molecules/CustomInput";
 import FullPageBanner from "../molecules/FullPageBanner";
 import SliderBanner from "../molecules/SliderBanner.vue";
 import VideoCarousel from "../molecules/VideoCarousel.vue";
+import videoCarouselv2 from "../molecules/videoCarouselv2.vue";
+
 export default {
   name: "ListOfComponent",
   render(createElement) {
@@ -17,6 +19,7 @@ export default {
         <FullPageBanner />
         <SliderBanner />
         <VideoCarousel />
+        <videoCarouselv2/>
       </div>
     );
   },
