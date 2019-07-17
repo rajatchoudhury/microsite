@@ -129,12 +129,13 @@ export default {
   },
   methods: {
     scrollWin(n) {
+      var thumbWidth = document.getElementsByClassName("thumb")[0].offsetWidth + 20;
       if (n) {
-        this.left -= 145;
+        this.left -= thumbWidth;
         this.numberOfNexts++;
         document.querySelectorAll(".prev")[0].style.display = "block";
       } else {
-        this.left += 145;
+        this.left += thumbWidth;
         this.numberOfNexts--;
       }
       document.querySelectorAll(".thumb").forEach(element => {
@@ -180,14 +181,15 @@ export default {
   },
   mounted() {
     var thumbs = document.getElementsByClassName("thumb");
-    if (this.windowWidth / 145 >= thumbs.length) {
+    if (this.windowWidth / (thumbs[0].offsetWidth + 20) >= thumbs.length) {
       document.querySelectorAll(".next")[0].style.display = "none";
       document.querySelectorAll(".prev")[0].style.display = "none";
     } else {
       this.allowedNumberOfNext =
-        thumbs.length - Math.floor(this.windowWidth / 145);
+      thumbs.length -
+      Math.floor(this.windowWidth / (thumbs[0].offsetWidth + 20));
     }
     this.showSlides(this.slideIndex);
-  }
+ }
 };
 </script>
