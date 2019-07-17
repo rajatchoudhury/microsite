@@ -7,6 +7,7 @@ import gradientBanner from "../molecules/gradientBanner";
 import CustomInput from "../molecules/CustomInput";
 import FullPageBanner from "../molecules/FullPageBanner";
 import SliderBanner from "../molecules/SliderBanner.vue";
+import VideoCarousel from "../molecules/VideoCarousel.vue";
 export default {
   name: "ListOfComponent",
   render(createElement) {
@@ -15,6 +16,7 @@ export default {
         <HomePageBanner />
         <FullPageBanner />
         <SliderBanner />
+        <VideoCarousel />
       </div>
     );
   },
