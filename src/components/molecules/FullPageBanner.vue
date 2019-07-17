@@ -51,16 +51,15 @@
         </tr>
       </thead>
     </table>
-    <div class="container-fluid fpbanner fullpagebanner">
+    <div class="container-fluid fpbanner">
       <div class="row">
-        <div class="col-md-12 fpbanner__text" :class="picked">
-          <div class="fpbanner__text--para pos--rel">
-            <h3 class="fpbanner__heading f-3rem fromTopanim">
-              <span class="fpbanner__heading--ptext m10">Lorem Ipsum</span>
+        <div class="col-md-12" :class="picked">
+          <div class="fpbanner__container pos--rel">
+            <h3 class="fpbanner--header f-3rem fromtopanim">
+              <span class="fpbanner--text m10">Lorem Ipsum</span>
             </h3>
-
-            <h2 class="fpbanner__fpl2 f-2rem fromBottomanim">
-              <span class="fpbanner__fpl2--fpl2text m10">
+            <h2 class="fpbanner__subheader f-2rem frombottomanim">
+              <span class="fpbanner__subheader--text m10">
                 Lorem Ipsum is simply dummy text of
                 the printing and typesetting industry.
                 Lorem Ipsum is simply dummy text of
@@ -125,15 +124,15 @@ export default {
         zoom = "zoom-effect_stepthree";
       }
       document
-        .querySelectorAll(".fullpagebanner")[0]
+        .querySelectorAll(".fpbanner")[0]
         .classList.remove("zoom-outeffect");
       setTimeout(() => {
-        document.querySelectorAll(".fullpagebanner")[0].classList.add(zoom);
+        document.querySelectorAll(".fpbanner")[0].classList.add(zoom);
       }, 500);
       setTimeout(() => {
-        document.querySelectorAll(".fullpagebanner")[0].classList.remove(zoom);
+        document.querySelectorAll(".fpbanner")[0].classList.remove(zoom);
         document
-          .querySelectorAll(".fullpagebanner")[0]
+          .querySelectorAll(".fpbanner")[0]
           .classList.add("zoom-outeffect");
       }, 2000);
       setTimeout(() => {
