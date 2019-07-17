@@ -1,9 +1,9 @@
 <template>
-    <div class="card">
+    <div :class="'card ' + variation">
         <div class="card__overlay">
             <div class="card__container">
-                <AppCardTitle />
-                <AppCardContent />
+                <AppCardTitle :title="title" />
+                <AppCardContent :content="content"/>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@ export default {
             type: String,
             default: 'Content to be shown here.'
         },
-        size:{
+        variation:{
             type: String,
             default: 'card__single'
         },    
