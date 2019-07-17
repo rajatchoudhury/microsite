@@ -7,6 +7,8 @@ import CustomInput from "../molecules/CustomInput";
 import BannerComponent from "../molecules/BannerComponent";
 import SliderBanner from "../molecules/SliderBanner.vue";
 import VideoCarousel from "../molecules/VideoCarousel.vue";
+import AppCard from '../molecules/AppCard'
+
 export default {
   name: "ListOfComponent",
   render(createElement) {
@@ -16,6 +18,8 @@ export default {
         <BannerComponent />
         <SliderBanner />
         <VideoCarousel />
+        <AppCard variation="top-right" />
+        <AppCard variation="card-double" />
       </div>
     );
   },
