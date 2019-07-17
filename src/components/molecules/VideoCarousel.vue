@@ -5,7 +5,7 @@
         <tr>
           <th colspan="3" class="herotitle">Video Banner</th>
         </tr>
-        
+
         <tr>
           <th>Title and description:</th>
           <th colspan="2">
@@ -23,6 +23,10 @@
     </table>
     <div class="slideshow-container">
       <div class="mySlides">
+        <img
+          src="../../assets/Big Play button.svg"
+          style="width: 150px; position: absolute; left: 45%; top: 30%; "
+        />
         <video
           class="video-fluid"
           width="100%"
@@ -39,6 +43,10 @@
       </div>
 
       <div class="mySlides">
+        <img
+          src="../../assets/Big Play button.svg"
+          style="width: 150px; position: absolute; left: 45%; top: 30%;"
+        />
         <video
           class="video-fluid"
           width="100%"
@@ -55,6 +63,10 @@
       </div>
 
       <div class="mySlides">
+        <img
+          src="../../assets/Big Play button.svg"
+          style="width: 150px; position: absolute; left: 45%; top: 30%;"
+        />
         <video
           class="video-fluid"
           width="100%"
@@ -124,12 +136,13 @@ export default {
       windowWidth: window.innerWidth,
       numberOfNexts: 0,
       allowedNumberOfNext: 0,
-      picked: "left",
+      picked: "left"
     };
   },
   methods: {
     scrollWin(n) {
-      var thumbWidth = document.getElementsByClassName("thumb")[0].offsetWidth + 20;
+      var thumbWidth =
+        document.getElementsByClassName("thumb")[0].offsetWidth + 20;
       if (n) {
         this.left -= thumbWidth;
         this.numberOfNexts++;
@@ -186,10 +199,10 @@ export default {
       document.querySelectorAll(".prev")[0].style.display = "none";
     } else {
       this.allowedNumberOfNext =
-      thumbs.length -
-      Math.floor(this.windowWidth / (thumbs[0].offsetWidth + 20));
+        thumbs.length -
+        Math.floor(this.windowWidth / (thumbs[0].offsetWidth + 20));
     }
     this.showSlides(this.slideIndex);
- }
+  }
 };
 </script>
