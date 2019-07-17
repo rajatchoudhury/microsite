@@ -3,25 +3,31 @@
 
 // All imported SCSS partials
 
-@import "./partials/_reset";      // Normalize
-@import "./partials/_mixins";     // Custom mixins to assist in development
-@import "./partials/_grid";       // This is a modified version of the Bootstrap grid to account for MWF breakpoints and
-@import "./partials/_fonts";      // Decalaring fonts per MWF guidelines
-@import "./partials/_variables";  // Declare global variables here
+
+@import "./partials/_reset"; // Normalize
+@import "./partials/_mixins"; // Custom mixins to assist in development
+@import "./partials/_grid"; // This is a modified version of the Bootstrap grid to account for MWF breakpoints and
+@import "./partials/_fonts"; // Decalaring fonts per MWF guidelines
+@import "./partials/_global";
+@import "./partials/_variables"; // Declare global variables here
 @import "./partials/_typography"; // Declaring all typography
-
-
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+@import "./HomePageBanner.scss";
+@import "./gradientBanner.scss";
+@import "./FullPageBanner.scss";
+@import "./SliderBanner.scss";
 // Header 
 
-.navbar-container{
-    &__content{
-        ul li{
+.navbar-container {
+    &__content {
+        ul li {
             @include inline-flex;
-        }        
+        }
     }
 }
 
-.card {    
+.card {
     position: relative;
     width: 100%;
     max-width: 870px;
@@ -55,14 +61,15 @@
         color: #fff;
     }
 
-    &__overlay { 
+    &__overlay {
         position: absolute;
         top: 0;
-        bottom:0;
-         height:100%;
-         width:300px;
-         background: #01a99f;
-         &:after {
+        bottom: 0;
+        height: 100%;
+        width: 300px;
+        background: #01a99f;
+
+        &:after {
             content: " ";
             position: absolute;
             display: block;
@@ -76,11 +83,11 @@
             transform-origin: bottom left;
             -webkit-transform: skew(30deg, 0deg);
             transform: skew(30deg, 0deg);
-         }   
-         
+        }
+
     }
 
-    &.top-left &__overlay { 
+    &.top-left &__overlay {
         .card__container {
             z-index: 2;
             top: 40px;
@@ -88,36 +95,38 @@
         }
 
         &:after {
-            transform-origin: top left;            
+            transform-origin: top left;
             -webkit-transform: skew(-30deg, 0deg);
             transform: skew(-30deg, 0deg);
             background: linear-gradient(50deg, #01a99f 55%, rgba(1, 169, 158, 0.3));
-         }
+        }
     }
 
-    &.top-right &__overlay { 
-            right: 0;
-            .card__container {
-                z-index: 2;
-                top: 40px;
-                right: 50px;
-                left: unset;
-                text-align: right;
-            }
-
-            &:after {
-                left: unset;
-                right: -15px;
-                background: linear-gradient(-50deg, #01a99f 55%, rgba(1, 169, 158, 0.3));
-             }
-    }
-
-    &.bottom-right &__overlay { 
+    &.top-right &__overlay {
         right: 0;
+
+        .card__container {
+            z-index: 2;
+            top: 40px;
+            right: 50px;
+            left: unset;
+            text-align: right;
+        }
+
+        &:after {
+            left: unset;
+            right: -15px;
+            background: linear-gradient(-50deg, #01a99f 55%, rgba(1, 169, 158, 0.3));
+        }
+    }
+
+    &.bottom-right &__overlay {
+        right: 0;
+
         .card__container {
             z-index: 2;
             right: 50px;
-            left: unset;            
+            left: unset;
             top: unset;
             bottom: 100px;
             text-align: right;
@@ -126,15 +135,15 @@
         &:after {
             left: unset;
             right: -15px;
-            transform-origin: top left;            
+            transform-origin: top left;
             -webkit-transform: skew(-30deg, 0deg);
             transform: skew(-30deg, 0deg);
             background: linear-gradient(-130deg, #01a99f 55%, rgba(1, 169, 158, 0.3));
-         }
-    }    
+        }
+    }
 }
 
-.card.card-double {   
+.card.card-double {
     max-width: 500px;
     height: 575px;
 
@@ -147,13 +156,14 @@
         width: 100%;
     }
 
-    .card__overlay { 
+    .card__overlay {
         position: absolute;
-        bottom:0;
-        top:unset;
-         height:130px;
-         width:100%;
-         &:after {
+        bottom: 0;
+        top: unset;
+        height: 130px;
+        width: 100%;
+
+        &:after {
             content: " ";
             position: absolute;
             display: block;
@@ -167,6 +177,6 @@
             transform-origin: top right;
             -webkit-transform: skew(0deg, 12deg);
             transform: skew(0deg, 12deg);
-         }         
-    }  
+        }
+    }
 }

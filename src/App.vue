@@ -1,19 +1,21 @@
 <template>
-    <div id="app">
-      <!--<router-view/>-->
-      <HelloWorld />
-    </div>
+  <div id="app">
+    <!--<router-view/>-->
+
+    <!-- <router-view /> -->
+    <ListOfComponent />
+  </div>
 </template>
 
 <style lang="scss">
-    @import "./styles/main";
+@import "./styles/main";
 </style>
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import ListOfComponent from "@/components/organisms/ListOfComponent.vue";
 export default {
-    name: "App",
-    components:{
-        HelloWorld
-    }
-}
+  name: "App",
+  components: {
+    ListOfComponent
+  }
+};
 </script>
