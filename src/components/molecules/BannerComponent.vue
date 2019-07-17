@@ -41,32 +41,42 @@
           <th colspan="2">
             <label>
               Left Text
-              <input type="radio" id="one" value="bottom-left" v-model="picked" />
+              <input type="radio" id="one" value="bottom-left" v-model="dataRef.picked" />
             </label>&nbsp;
             <label>
               Center Text
-              <input type="radio" id="two" value="center-center" v-model="picked" />
+              <input
+                type="radio"
+                id="two"
+                value="center-center"
+                v-model="dataRef.picked"
+              />
             </label>&nbsp;
             <label>
               right Text
-              <input type="radio" id="two" value="bottom-right" v-model="picked" />
+              <input type="radio" id="two" value="bottom-right" v-model="dataRef.picked" />
             </label>
           </th>
         </tr>
       </thead>
     </table>
-    <div class="container-fluid fpbanner">
+    <div class="container-fluid fpbanner" :ref="dataRef.refS">
       <div class="imgcontainer">
-        <img :src="getImage(backgroundImage)" alt="banner" class="fpbanner__img" />
+        <img
+          :src="getImage(dataRef.backgroundImage)"
+          alt="banner"
+          class="fpbanner__img"
+          ref="fpbannerimg"
+        />
       </div>
       <div class="row fpbanner__row">
-        <div class="col-md-12" :class="picked">
+        <div class="col-md-12" :class="dataRef.picked">
           <div class="fpbanner__container pos--rel">
             <h3 class="fpbanner--header f-3rem fromtopanim">
-              <span class="fpbanner--text m10">{{headerText}}</span>
+              <span class="fpbanner--text m10">{{dataRef.headerText}}</span>
             </h3>
             <h2 class="fpbanner__subheader f-2rem frombottomanim">
-              <span class="fpbanner__subheader--text m10">{{subHeaderText}}</span>
+              <span class="fpbanner__subheader--text m10">{{dataRef.subHeaderText}}</span>
             </h2>
           </div>
         </div>
@@ -79,102 +89,25 @@
 export default {
   data() {
     return {
-      picked: "aligncontentleft",
       angle: 50,
-      textscale: 1.2,
-      backgroundImage: "Zensar-Eon-01.jpg",
-      headerText: "Lorem Ipsum",
-      subHeaderText:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      textscale: 1.2
     };
   },
+  props: {
+    dataRef: {
+      type: Object,
+      required: true
+    }
+  },
   mounted() {
-    this.changeKeyFrames();
+    //this.changeKeyFrames();
     this.zoomInOut(true, 500);
   },
   methods: {
     getImage(img) {
       return require("@/assets/" + img);
     },
-    changeKeyFrames() {
-      (function() {
-        // Init
-        var container = document.querySelectorAll(".fpbanner")[0],
-          inner = document.querySelectorAll(".fpbanner__img ")[0];
-
-        // Mouse
-        var mouse = {
-          _x: 0,
-          _y: 0,
-          x: 0,
-          y: 0,
-          updatePosition: function(event) {
-            var e = event || window.event;
-            this.x = e.clientX - this._x;
-            this.y = (e.clientY - this._y) * -1;
-          },
-          setOrigin: function(e) {
-            this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
-            this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
-          },
-          show: function() {
-            return "(" + this.x + ", " + this.y + ")";
-          }
-        };
-
-        // Track the mouse position relative to the center of the container.
-        mouse.setOrigin(container);
-
-        //-----------------------------------------
-
-        var counter = 0;
-        var updateRate = 10;
-        var isTimeToUpdate = function() {
-          return counter++ % updateRate === 0;
-        };
-
-        //-----------------------------------------
-
-        var onMouseEnterHandler = function(event) {
-          //update(event);
-        };
-
-        var onMouseLeaveHandler = function() {
-          inner.style = "";
-        };
-
-        var onMouseMoveHandler = function(event) {
-          if (isTimeToUpdate()) {
-            update(event);
-          }
-        };
-
-        //-----------------------------------------
-
-        var update = function(event) {
-          mouse.updatePosition(event);
-          updateTransformStyle(
-            (mouse.y / inner.offsetHeight / 2).toFixed(2),
-            (mouse.x / inner.offsetWidth / 2).toFixed(2)
-          );
-        };
-
-        var updateTransformStyle = function(x, y) {
-          var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
-          inner.style.transform = style;
-          inner.style.webkitTransform = style;
-          inner.style.mozTransform = style;
-          inner.style.msTransform = style;
-          inner.style.oTransform = style;
-        };
-
-        //-----------------------------------------
-
-        container.onmouseenter = onMouseEnterHandler;
-        container.onmouseleave = onMouseLeaveHandler;
-        container.onmousemove = onMouseMoveHandler;
-      })();
-    },
+    changeKeyFrames() {},
     zoomInOut(isFirst) {
       var zoom = "zoom-effect";
       if (this.textscale == 1.2) {
@@ -184,27 +117,17 @@ export default {
       } else if (this.textscale == 1.6) {
         zoom = "zoom-effect_stepthree";
       }
-      document
-        .querySelectorAll(".fpbanner__img")[0]
-        .classList.remove("zoom-outeffect");
-      document
-        .querySelectorAll(".fpbanner__img")[0]
-        .classList.remove("zoom-effect");
-      document
-        .querySelectorAll(".fpbanner__img")[0]
-        .classList.remove("zoom-effect_steptwo");
-      document
-        .querySelectorAll(".fpbanner__img")[0]
-        .classList.remove("zoom-effect_stepthree");
+      this.$refs.fpbannerimg.classList.remove("zoom-outeffect");
+      this.$refs.fpbannerimg.classList.remove("zoom-effect");
+      this.$refs.fpbannerimg.classList.remove("zoom-effect_steptwo");
+      this.$refs.fpbannerimg.classList.remove("zoom-effect_stepthree");
       setTimeout(() => {
-        document.querySelectorAll(".fpbanner__img")[0].classList.add(zoom);
+        this.$refs.fpbannerimg.classList.add(zoom);
       }, 500);
       setTimeout(() => {
-        document
-          .querySelectorAll(".fpbanner__img")[0]
-          .classList.add("zoom-outeffect");
+        this.$refs.fpbannerimg.classList.add("zoom-outeffect");
       }, 2000);
-      document.querySelectorAll(".fpbanner__img")[0].classList.remove(zoom);
+      this.$refs.fpbannerimg.classList.remove(zoom);
       setTimeout(() => {
         if (isFirst) {
           this.setIntervalAnimationZero(-25, false, true, 50);
@@ -215,7 +138,7 @@ export default {
       var counter = count;
       var timer = "";
       var timer = setInterval(() => {
-        var tiltbanner = document.querySelectorAll(".fpbanner__img")[0];
+        var tiltbanner = this.$refs.fpbannerimg;
         counter--;
         if (counter == -49) {
           clearInterval(timer);
@@ -230,7 +153,7 @@ export default {
       var counter = count;
       var timer = "";
       var timer = setInterval(() => {
-        var tiltbanner = document.querySelectorAll(".fpbanner__img")[0];
+        var tiltbanner = this.$refs.fpbannerimg;
         counter++;
         if (counter == 0) {
           clearInterval(timer);

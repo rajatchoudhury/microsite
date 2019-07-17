@@ -15,7 +15,8 @@ export default {
     return (
       <div>
         <HomePageBanner />
-        <BannerComponent />
+        <BannerComponent dataRef={this.dataRef} />
+        <BannerComponent dataRef={this.dataRef1} />
         <SliderBanner />
         <VideoCarousel />
         <AppCard variation="top-right" />
@@ -42,7 +43,25 @@ export default {
           path: "/organisms",
           label: "Organisms"
         }
-      ]
+      ],
+      dataRef: {
+        picked: "bottom-left",
+        angle: 50,
+        textscale: 1.2,
+        backgroundImage: "Zensar-Eon-01.jpg",
+        headerText: "Lorem Ipsum",
+        subHeaderText:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      },
+      dataRef1: {
+        picked: "bottom-right",
+        angle: 50,
+        textscale: 1.2,
+        backgroundImage: "Zensar-Eon-01.jpg",
+        headerText: "Lorem Ipsum",
+        subHeaderText:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      }
     };
   }
 };
