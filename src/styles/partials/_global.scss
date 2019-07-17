@@ -336,18 +336,18 @@ transition: transform 1s;
 transition-timing-function: linear;
 animation: fpBanner 10s infinite;
 }
-.fullpagebanner, .homepagebanner{
+.fpbanner, .homepagebanner{
     transition: transform 2s;
 }
 
-.fromTopanim {
+.fromtopanim {
     animation-name: landingSlideDown;
           animation-duration: 2s;
           position: relative;
     }
 
 
-    .fromBottomanim {
+    .frombottomanim {
         animation-name: landingSlideUp;
           animation-duration: 2s;
           position: relative;
