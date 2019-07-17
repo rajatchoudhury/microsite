@@ -1,4 +1,4 @@
-# boilerplate_vue
+# zensar_microsite
 
 ## Project setup
 ```
