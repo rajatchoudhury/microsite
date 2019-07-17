@@ -379,7 +379,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1.2);
         -o-transform: scale(1.2);
         transform: scale(1.2);
-        transition: transform 2s;
+        transition: transform 2s !important;
       }
       .zoom-effect_steptwo {
         -ms-transform: scale(1.4);
@@ -387,7 +387,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1.4);
         -o-transform: scale(1.4);
         transform: scale(1.4);
-        transition: transform 2s;
+        transition: transform 2s !important;
       }
       .zoom-effect_stepthree {
         -ms-transform: scale(1.6);
@@ -395,7 +395,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1.6);
         -o-transform: scale(1.6);
         transform: scale(1.6);
-        transition: transform 2s;
+        transition: transform 2s !important;
       }
       
       .zoom-outeffect {
@@ -404,6 +404,6 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1);
         -o-transform: scale(1);
         transform: scale(1);
-        transition: transform 2s;
+        transition: transform 2s !important;
       }
     

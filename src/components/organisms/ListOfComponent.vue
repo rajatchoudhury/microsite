@@ -14,9 +14,7 @@ export default {
   render(createElement) {
     return (
       <div>
-        <HomePageBanner />
         <BannerComponent dataRef={this.dataRef} />
-        <BannerComponent dataRef={this.dataRef1} />
         <SliderBanner />
         <VideoCarousel />
         <AppCard variation="top-right" />
@@ -48,7 +46,7 @@ export default {
         picked: "bottom-left",
         angle: 50,
         textscale: 1.2,
-        backgroundImage: "Zensar-Eon-01.jpg",
+        backgroundImage: "th.jpg",
         headerText: "Lorem Ipsum",
         subHeaderText:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
