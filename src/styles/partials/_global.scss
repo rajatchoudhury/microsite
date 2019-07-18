@@ -384,6 +384,21 @@ animation: fpBanner 10s infinite;
           animation-duration: 2s;
           position: relative;
     }
+    .zoom-speed-one {
+        transition: transform 1s !important;
+    }
+    .zoom-speed-two {
+        transition: transform 2s !important;
+    }
+    .zoom-speed-three {
+        transition: transform 3s !important;
+    }
+    .zoom-speed-four {
+        transition: transform 4s !important;
+    }
+    .zoom-speed-five {
+        transition: transform 5s !important;
+    }
 
     .zoom-effect-one {
         -ms-transform: scale(1);
@@ -391,7 +406,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1);
         -o-transform: scale(1);
         transform: scale(1);
-        transition: transform 2s !important;
+        transition: transform 1s !important;
       }
 
     .zoom-effect {
@@ -400,7 +415,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1.2);
         -o-transform: scale(1.2);
         transform: scale(1.2);
-        transition: transform 2s !important;
+        //transition: transform 1s !important;
       }
       .zoom-effect_steptwo {
         -ms-transform: scale(1.4);
@@ -408,7 +423,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1.4);
         -o-transform: scale(1.4);
         transform: scale(1.4);
-        transition: transform 2s !important;
+        //transition: transform 1s !important;
       }
       .zoom-effect_stepthree {
         -ms-transform: scale(1.6);
@@ -416,7 +431,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1.6);
         -o-transform: scale(1.6);
         transform: scale(1.6);
-        transition: transform 2s !important;
+        //transition: transform 1s !important;
       }
       
       .zoom-outeffect {
@@ -425,6 +440,6 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1);
         -o-transform: scale(1);
         transform: scale(1);
-        transition: transform 2s !important;
+        //transition: transform 1s !important;
       }
     

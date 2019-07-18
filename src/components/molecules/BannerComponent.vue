@@ -30,6 +30,19 @@
             />
           </th>
           <th>{{textscale}}</th>
+          <th>Zoom Speed</th>
+          <th>
+            <input
+              type="range"
+              name="points"
+              min="1"
+              max="5"
+              step="1"
+              v-model="zoomSpeed"
+              @change="zoomSpeedChange()"
+            />
+          </th>
+          <th>{{zoomSpeed}}</th>
         </tr>
         <tr>
           <th>Panorama Effect:</th>
@@ -124,7 +137,8 @@ export default {
       angle: 50,
       textscale: 1.2,
       zoomSelected: "zoomSelected",
-      tiltSelected: false
+      tiltSelected: false,
+      zoomSpeed: 1
     };
   },
   props: {
@@ -263,6 +277,27 @@ export default {
         container.onmousemove = "";
         container.onmouseleave = "";
         container.onmouseenter = "";
+      }
+    },
+    zoomSpeedChange() {
+      if (this.zoomSelected == "zoomSelected") {
+        var zoomS = "zoom-speed-one";
+        if (this.zoomSpeed == 2) {
+          zoomS = "zoom-speed-two";
+        } else if (this.zoomSpeed == 3) {
+          zoomS = "zoom-speed-three";
+        } else if (this.zoomSpeed == 4) {
+          zoomS = "zoom-speed-four";
+        } else if (this.zoomSpeed == 5) {
+          zoomS = "zoom-speed-five";
+        }
+        this.zoomInOut();
+        this.$refs.fpbannerimg.classList.remove("zoom-speed-one");
+        this.$refs.fpbannerimg.classList.remove("zoom-speed-two");
+        this.$refs.fpbannerimg.classList.remove("zoom-speed-three");
+        this.$refs.fpbannerimg.classList.remove("zoom-speed-four");
+        this.$refs.fpbannerimg.classList.remove("zoom-speed-five");
+        this.$refs.fpbannerimg.classList.add(zoomS);
       }
     },
     zoomInOut(isFirst) {
