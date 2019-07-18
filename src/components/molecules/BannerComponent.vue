@@ -235,7 +235,7 @@ export default {
       var timer = setInterval(() => {
         var tiltbanner = this.$refs.fpbannerimg;
         counter++;
-        if (counter == 0) {
+        if (counter == -25) {
           clearInterval(timer);
           if (isFirstInt) {
             this.setIntervalAnimationZero(counter, false, false, speed);
