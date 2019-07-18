@@ -1,19 +1,17 @@
 <template>
-    <div >
-      <div :class="'card ' + variation">
+    
+      <div :class="'mycard ' + variation">
         <div class="card__overlay">
             <div class="card__container">
                 <AppCardTitle :title="title" />
                 <AppCardContent :content="content"/>
             </div>
         </div>
-    </div>
-    </div>
-    
+        </div>   
 </template>
 
 <style>
-    .card {
+    .mycard {
         background: center / cover no-repeat url("../../assets/xyz.jpeg");
     }
 </style>
@@ -35,11 +33,11 @@ export default {
         },
         content:{
             type: String,
-            default: 'Content to be shown here.'
+            default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis cras sed felis eget velit.'
         },
         variation:{
             type: String,
-            default: 'card__single'
+            default: 'card--single'
         },    
     }
 }
