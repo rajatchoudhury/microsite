@@ -207,7 +207,7 @@
           loop: false,
           loopedSlides: 6, //looped slides should be the same
           slideToClickedSlide: true,
-          centeredSlides: true,
+          centeredSlides: false,
           slidesOffsetBefore: 10,
         },
         paused: true
