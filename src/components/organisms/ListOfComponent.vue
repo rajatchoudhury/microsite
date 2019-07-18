@@ -51,7 +51,7 @@ export default {
         backgroundImage: "th.jpg",
         headerText: "Lorem",
         subHeaderText:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
       },
       dataRef1: {
         picked: "bottom-right",

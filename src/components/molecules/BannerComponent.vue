@@ -22,7 +22,7 @@
             <input
               type="range"
               name="points"
-              min="1.2"
+              min="1"
               max="1.6"
               step="0.2"
               v-model="textscale"
@@ -39,7 +39,7 @@
               name="points"
               value="ponaramaSelected"
               v-model="zoomSelected"
-              @change="setIntervalAnimationZero(-25, false, true, angle) "
+              @change="setIntervalAnimationZero(-25, false, true, (80 - angle)) "
             />
           </th>
           <th>Panorama Speed:</th>
@@ -47,11 +47,11 @@
             <input
               type="range"
               name="points"
-              min="30"
-              max="80"
+              min="0"
+              max="50"
               step="10"
               v-model="angle"
-              @change="setIntervalAnimationZero(-25, false, true, angle) "
+              @change="setIntervalAnimationZero(-25, false, true, (80 - angle)) "
             />
           </th>
           <th>{{angle}}</th>
@@ -267,7 +267,7 @@ export default {
     },
     zoomInOut(isFirst) {
       if (this.zoomSelected == "zoomSelected") {
-        var zoom = "zoom-effect";
+        var zoom = "zoom-effect-one";
         if (this.textscale == 1.2) {
           zoom = "zoom-effect";
         } else if (this.textscale == 1.4) {

@@ -385,6 +385,15 @@ animation: fpBanner 10s infinite;
           position: relative;
     }
 
+    .zoom-effect-one {
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        transition: transform 2s !important;
+      }
+
     .zoom-effect {
         -ms-transform: scale(1.2);
         -moz-transform: scale(1.2);
