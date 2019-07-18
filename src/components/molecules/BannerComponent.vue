@@ -57,13 +57,13 @@
           <th>{{angle}}</th>
         </tr>
         <tr>
-          <th>MouseOver Tilt Effect:</th>
+          <th>Tilt Effect:</th>
           <th>
             <input
               type="checkbox"
               name="points"
               v-model="tiltSelected"
-              @change="changeKeyFrames() "
+              @change="startTiltEffect() "
             />
           </th>
           <th>{{tiltSelected}}</th>
@@ -134,12 +134,54 @@ export default {
     }
   },
   mounted() {
-    this.changeKeyFrames();
+    //this.changeKeyFrames();
     this.zoomInOut(true, 500);
+    //this.startTiltEffect();
   },
   methods: {
     getImage(img) {
       return require("@/assets/" + img);
+    },
+    startTiltEffect() {
+      var counter = 10;
+      var timer = setInterval(() => {
+        if (this.tiltSelected) {
+          counter++;
+          if (counter == 20) {
+            this.infiniteTilt(0.018, -0.17);
+          } else if (counter == 40) {
+            this.infiniteTilt(0.75, 0.17);
+          } else if (counter == 60) {
+            this.infiniteTilt(0.36, 0.16);
+          } else if (counter == 80) {
+            this.infiniteTilt(0.35, -0.17);
+            counter = 20;
+          }
+        } else {
+          clearInterval(timer);
+        }
+      }, 40);
+    },
+    infiniteTilt(x, y) {
+      var container = this.$refs.container,
+        inner = this.$refs.fpbannerimg;
+
+      var onMouseEnterHandler = function(event) {
+        update(event);
+      };
+      var update = function() {
+        updateTransformStyle(x, y);
+      };
+
+      var updateTransformStyle = function(x, y) {
+        var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+        inner.style.transform = style;
+        inner.style.webkitTransform = style;
+        inner.style.mozTranform = style;
+        inner.style.msTransform = style;
+        inner.style.oTransform = style;
+      };
+      onMouseEnterHandler();
     },
     changeKeyFrames() {
       // Init

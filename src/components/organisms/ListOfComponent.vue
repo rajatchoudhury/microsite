@@ -49,7 +49,7 @@ export default {
         angle: 50,
         textscale: 1.2,
         backgroundImage: "th.jpg",
-        headerText: "Lorem Ipsum",
+        headerText: "Lorem",
         subHeaderText:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
       },
@@ -58,7 +58,7 @@ export default {
         angle: 50,
         textscale: 1.2,
         backgroundImage: "Zensar-Eon-01.jpg",
-        headerText: "Lorem Ipsum",
+        headerText: "Lorem",
         subHeaderText:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
       }

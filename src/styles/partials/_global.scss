@@ -327,6 +327,18 @@
     @include align-items(center);
     @include justify-content(center);
     text-align: center;
+    h3 {
+        font-family: $Oswald-ExtraLight !important;
+        font-weight: $normal !important;
+        line-height: 1.2em !important;
+        font-size: 10rem;
+    }
+    h2 {
+        font-family: $Oswald-SemiBold;
+        font-weight: $semi-bold;
+        font-size: 2em;
+        line-height: 1.2em;
+    }
 }
 
 
