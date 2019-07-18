@@ -7,7 +7,17 @@
           <th colspan="3" class="herotitle">Hero Banner</th>
         </tr>
         <tr>
-          <th>Zoom</th>
+          <th>Zoom Effect:</th>
+          <th>
+            <input
+              type="radio"
+              name="points"
+              value="zoomSelected"
+              v-model="zoomSelected"
+              @change="zoomInOut() "
+            />
+          </th>
+          <th>Zoom Range</th>
           <th>
             <input
               type="range"
@@ -22,6 +32,16 @@
           <th>{{textscale}}</th>
         </tr>
         <tr>
+          <th>Panorama Effect:</th>
+          <th>
+            <input
+              type="radio"
+              name="points"
+              value="ponaramaSelected"
+              v-model="zoomSelected"
+              @change="setIntervalAnimationZero(-25, false, true, angle) "
+            />
+          </th>
           <th>Panorama Speed:</th>
           <th>
             <input
@@ -37,8 +57,20 @@
           <th>{{angle}}</th>
         </tr>
         <tr>
+          <th>MouseOver Tilt Effect:</th>
+          <th>
+            <input
+              type="checkbox"
+              name="points"
+              v-model="tiltSelected"
+              @change="changeKeyFrames() "
+            />
+          </th>
+          <th>{{tiltSelected}}</th>
+        </tr>
+        <tr>
           <th>Title and description:</th>
-          <th colspan="2">
+          <th colspan="5">
             <label>
               Left Text
               <input type="radio" id="one" value="bottom-left" v-model="dataRef.picked" />
@@ -90,7 +122,9 @@ export default {
   data() {
     return {
       angle: 50,
-      textscale: 1.2
+      textscale: 1.2,
+      zoomSelected: "zoomSelected",
+      tiltSelected: false
     };
   },
   props: {
@@ -179,61 +213,74 @@ export default {
       };
 
       //--------------------------------------------------------
-
-      container.onmousemove = onMouseMoveHandler;
-      container.onmouseleave = onMouseLeaveHandler;
-      container.onmouseenter = onMouseEnterHandler;
+      if (this.tiltSelected) {
+        container.onmousemove = onMouseMoveHandler;
+        container.onmouseleave = onMouseLeaveHandler;
+        container.onmouseenter = onMouseEnterHandler;
+      } else {
+        container.onmousemove = "";
+        container.onmouseleave = "";
+        container.onmouseenter = "";
+      }
     },
     zoomInOut(isFirst) {
-      var zoom = "zoom-effect";
-      if (this.textscale == 1.2) {
-        zoom = "zoom-effect";
-      } else if (this.textscale == 1.4) {
-        zoom = "zoom-effect_steptwo";
-      } else if (this.textscale == 1.6) {
-        zoom = "zoom-effect_stepthree";
-      }
-      this.$refs.fpbannerimg.classList.remove("zoom-outeffect");
-      this.$refs.fpbannerimg.classList.remove("zoom-effect");
-      this.$refs.fpbannerimg.classList.remove("zoom-effect_steptwo");
-      this.$refs.fpbannerimg.classList.remove("zoom-effect_stepthree");
-      setTimeout(() => {
-        this.$refs.fpbannerimg.classList.add(zoom);
-      }, 500);
-      setTimeout(() => {
-        this.$refs.fpbannerimg.classList.add("zoom-outeffect");
-        this.$refs.fpbannerimg.classList.remove(zoom);
-      }, 2000);
-      setTimeout(() => {
+      if (this.zoomSelected == "zoomSelected") {
+        var zoom = "zoom-effect";
+        if (this.textscale == 1.2) {
+          zoom = "zoom-effect";
+        } else if (this.textscale == 1.4) {
+          zoom = "zoom-effect_steptwo";
+        } else if (this.textscale == 1.6) {
+          zoom = "zoom-effect_stepthree";
+        }
         this.$refs.fpbannerimg.classList.remove("zoom-outeffect");
-      }, 5000);
+        this.$refs.fpbannerimg.classList.remove("zoom-effect");
+        this.$refs.fpbannerimg.classList.remove("zoom-effect_steptwo");
+        this.$refs.fpbannerimg.classList.remove("zoom-effect_stepthree");
+        setTimeout(() => {
+          this.$refs.fpbannerimg.classList.add(zoom);
+        }, 500);
+        setTimeout(() => {
+          this.$refs.fpbannerimg.classList.add("zoom-outeffect");
+          this.$refs.fpbannerimg.classList.remove(zoom);
+        }, 2000);
+        setTimeout(() => {
+          this.$refs.fpbannerimg.classList.remove("zoom-outeffect");
+        }, 5000);
+      }
 
       setTimeout(() => {
-        if (isFirst) {
+        if (isFirst && this.zoomSelected == "ponaramaSelected") {
           this.setIntervalAnimationZero(-25, false, true, 50);
         }
       }, 3000);
     },
     setIntervalAnimationZero(count, isFirstInt, isSecondInt, speed) {
-      var counter = count;
-      var timer = "";
-      var timer = setInterval(() => {
-        var tiltbanner = this.$refs.fpbannerimg;
-        counter--;
-        if (counter == -49) {
-          clearInterval(timer);
-          if (isSecondInt) {
-            this.setIntervalAnimation(counter, false, true, speed);
+      if (this.zoomSelected == "ponaramaSelected") {
+        var counter = count;
+        var timer = "";
+        var timer = setInterval(() => {
+          var tiltbanner = this.$refs.fpbannerimg;
+          // counter = counter - 0.2;
+          // if (Math.round(counter) == -49) {
+          counter--;
+          if (counter == -49) {
+            clearInterval(timer);
+            if (isSecondInt) {
+              this.setIntervalAnimation(counter, false, true, speed);
+            }
           }
-        }
-        tiltbanner.style.left = counter + "%";
-      }, speed);
+          tiltbanner.style.left = counter + "%";
+        }, speed);
+      }
     },
     setIntervalAnimation(count, isFirstInt, isSecondInt, speed) {
       var counter = count;
       var timer = "";
       var timer = setInterval(() => {
         var tiltbanner = this.$refs.fpbannerimg;
+        // counter = counter + 0.2;
+        // if (Math.round(counter) == -25) {
         counter++;
         if (counter == -25) {
           clearInterval(timer);
