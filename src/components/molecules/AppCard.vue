@@ -1,6 +1,7 @@
 <template>
     
       <div :class="'mycard ' + variation">
+          <img class="card__image" src="../../assets/xyz.jpeg" alt="Card Image">
         <div class="card__overlay">
             <div class="card__container">
                 <AppCardTitle :title="title" />
@@ -9,12 +10,6 @@
         </div>
         </div>   
 </template>
-
-<style>
-    .mycard {
-        background: center / cover no-repeat url("../../assets/xyz.jpeg");
-    }
-</style>
 
 <script>
 import AppCardTitle from '../atoms/AppCardTitle';
