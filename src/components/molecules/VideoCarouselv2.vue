@@ -36,7 +36,7 @@
         </tr>
       </thead>
     </table>
-    <!-- swiper1 -->
+    <!-- swiper Main -->
     <swiper :options="swiperOptionTop" class="gallery-top" ref="swiperTop">
       <swiper-slide v-for="(item, index) in videosList" :key="index">
         <img
@@ -101,12 +101,37 @@ export default {
           src: "https://mdbootstrap.com/img/video/Tropical.mp4",
           title: "Title 3",
           description: "Lorem ipsum dolor sit ctetur adipisc ipsum dingsbums"
+        },
+        {
+          src: "https://mdbootstrap.com/img/video/Tropical.mp4",
+          title: "Title 4",
+          description: "Lorem ipsum dolor sit ctetur adipisc ipsum dingsbums"
+        },
+        {
+          src: "https://mdbootstrap.com/img/video/Tropical.mp4",
+          title: "Title 5",
+          description: "Lorem ipsum dolor sit ctetur adipisc ipsum dingsbums"
+        },
+        {
+          src: "https://mdbootstrap.com/img/video/Tropical.mp4",
+          title: "Title 6",
+          description: "Lorem ipsum dolor sit ctetur adipisc ipsum dingsbums"
+        },
+        {
+          src: "https://mdbootstrap.com/img/video/Tropical.mp4",
+          title: "Title 7",
+          description: "Lorem ipsum dolor sit ctetur adipisc ipsum dingsbums"
+        },
+        {
+          src: "https://mdbootstrap.com/img/video/Tropical.mp4",
+          title: "Title 8",
+          description: "Lorem ipsum dolor sit ctetur adipisc ipsum dingsbums"
         }
       ],
       swiperOptionTop: {
         spaceBetween: 0,
         loop: false,
-        loopedSlides: 5, //looped slides should be the same
+        // loopedSlides: 5, //looped slides should be the same
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
@@ -126,10 +151,22 @@ export default {
         slidesPerView: 6,
         touchRatio: 0.2,
         loop: false,
-        loopedSlides: 6, //looped slides should be the same
+        // loopedSlides: 5, //looped slides should be the same
         slideToClickedSlide: true,
         centeredSlides: true,
-        slidesOffsetBefore: 10,
+        // slidesOffsetBefore: 10,
+        breakpointsInverse: true,
+        breakpoints: {
+          414: {
+            slidesPerView: 2
+          },
+          768: {
+            slidesPerView: 3
+          },
+          1200: {
+            slidesPerView: 6
+          }
+        },
         on: {
           slideChangeTransitionStart() {
             var video = document.getElementById("video-fluid-" + this.previousIndex);
@@ -137,7 +174,7 @@ export default {
             if(isVideoPlaying) {
               video.click();
             }
-           },
+          }
         }
       },
       paused: true,
@@ -172,9 +209,7 @@ export default {
       video.play();
       image.style = "opacity: 0; display: none";
       caption.style = "display: none";
-     // setTimeout(() => {
-        document.querySelectorAll(".bg-gradient")[index].style.display = "none";
-     // }, 300);
+      document.querySelectorAll(".bg-gradient")[index].style.display = "none";
       document.querySelectorAll(".bg-gradient")[index].style =
         "opacity: 0; transition: opacity 0.2s ease";
       this.paused = false;
@@ -208,6 +243,9 @@ export default {
   .swiper-button-next,
   .swiper-button-prev {
     top: 50% !important;
+  }
+  .swiper-button-disabled {
+    display: none;
   }
   .play-icon {
     width: 100px;
@@ -263,9 +301,9 @@ export default {
 }
 .gallery-thumbs .swiper-slide {
   opacity: 1;
-  width: 209px !important;
+  // width: 209px !important;
   // height: 200px !important;
-  // width: 25%;
+  width: 25%;
   background-color: black;
   height: 200px;
   top: 10px;
