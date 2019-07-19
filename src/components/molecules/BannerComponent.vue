@@ -281,15 +281,15 @@ export default {
     },
     zoomSpeedChange() {
       if (this.zoomSelected == "zoomSelected") {
-        var zoomS = "zoom-speed-one";
-        if (this.zoomSpeed == 2) {
+        var zoomS = "zoom-speed-five";
+        if (this.zoomSpeed == 4) {
           zoomS = "zoom-speed-two";
         } else if (this.zoomSpeed == 3) {
           zoomS = "zoom-speed-three";
-        } else if (this.zoomSpeed == 4) {
+        } else if (this.zoomSpeed == 2) {
           zoomS = "zoom-speed-four";
         } else if (this.zoomSpeed == 5) {
-          zoomS = "zoom-speed-five";
+          zoomS = "zoom-speed-one";
         }
         this.zoomInOut();
         this.$refs.fpbannerimg.classList.remove("zoom-speed-one");
