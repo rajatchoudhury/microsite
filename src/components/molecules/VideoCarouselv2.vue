@@ -15,7 +15,28 @@
   <!-- hero -->
   <div>
     <h2>Version 2 slider</h2>
-    <!-- swiper Main -->
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3" class="herotitle">Video Banner</th>
+        </tr>
+
+        <tr>
+          <th>Title and description:</th>
+          <th colspan="2">
+            <label>
+              Left Text
+              <input type="radio" id="one" value="left" v-model="picked" />
+            </label>&nbsp;
+            <label>
+              right Text
+              <input type="radio" id="two" value="right" v-model="picked" />
+            </label>
+          </th>
+        </tr>
+      </thead>
+    </table>
+    <!-- swiper1 -->
     <swiper :options="swiperOptionTop" class="gallery-top" ref="swiperTop">
       <swiper-slide v-for="(item, index) in videosList" :key="index">
         <img
@@ -26,7 +47,7 @@
         />
         <video
           :id="'video-fluid-' + index"
-          class="video-fluid"
+          class="video-fluid fullVideo"
           width="100%"
           @click="!paused ? playVideoOnClick(index) : null"
           loop
@@ -34,7 +55,7 @@
           <source :src="item.src" type="video/mp4" />
         </video>
         <div class="bg-gradient"></div>
-        <div class="caption">
+        <div class="caption" :class="picked" :id="'caption-' + index">
           <h1>{{item.title}}</h1>
           <p>{{item.description}}</p>
         </div>
@@ -89,6 +110,15 @@ export default {
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
+        },
+        on: {
+          slideChangeTransitionStart() {
+            var video = document.getElementById("video-fluid-" + this.previousIndex);
+            const isVideoPlaying = video => !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+            if(isVideoPlaying) {
+              video.click();
+            }
+          },
         }
       },
       swiperOptionThumbs: {
@@ -99,10 +129,20 @@ export default {
         loopedSlides: 6, //looped slides should be the same
         slideToClickedSlide: true,
         centeredSlides: true,
-        slidesOffsetBefore: 10
+        slidesOffsetBefore: 10,
+        on: {
+          slideChangeTransitionStart() {
+            var video = document.getElementById("video-fluid-" + this.previousIndex);
+            const isVideoPlaying = video => !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+            if(isVideoPlaying) {
+              video.click();
+            }
+           },
+        }
       },
       paused: true,
-      lastIndex: -1
+      lastIndex: -1,
+      picked: "left"
     };
   },
   mounted() {
@@ -128,11 +168,13 @@ export default {
     play(index) {
       var video = document.getElementById("video-fluid-" + index);
       var image = document.getElementById("play-icon-" + index);
+      var caption = document.getElementById("caption-" + index);
       video.play();
       image.style = "opacity: 0; display: none";
-      setTimeout(() => {
+      caption.style = "display: none";
+     // setTimeout(() => {
         document.querySelectorAll(".bg-gradient")[index].style.display = "none";
-      }, 300);
+     // }, 300);
       document.querySelectorAll(".bg-gradient")[index].style =
         "opacity: 0; transition: opacity 0.2s ease";
       this.paused = false;
@@ -140,8 +182,10 @@ export default {
     pause(index) {
       var video = document.getElementById("video-fluid-" + index);
       var image = document.getElementById("play-icon-" + index);
+      var caption = document.getElementById("caption-" + index);
       video.pause();
       image.style = "opacity: 1; display: block";
+      caption.style = "display: block";
       document.querySelectorAll(".bg-gradient")[index].style =
         "opacity: 1; display: block; transition: opacity 0.2s ease";
       this.paused = true;
@@ -179,11 +223,17 @@ export default {
     height: auto;
     position: absolute;
     top: 50%;
-    left: 8%;
     z-index: 1;
     p {
       font-size: 24px;
     }
+  }
+  .left {
+    left:8%;
+  }
+
+  .right {
+    right:8%;
   }
   .bg-gradient {
     position: absolute;
