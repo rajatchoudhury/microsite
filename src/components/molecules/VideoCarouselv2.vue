@@ -15,7 +15,7 @@
   <!-- hero -->
   <div>
     <h2>Version 2 slider</h2>
-    <!-- swiper1 -->
+    <!-- swiper Main -->
     <swiper :options="swiperOptionTop" class="gallery-top" ref="swiperTop">
       <swiper-slide v-for="(item, index) in videosList" :key="index">
         <img
@@ -43,7 +43,7 @@
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
     </swiper>
 
-    <!-- swiper2 Thumbs -->
+    <!-- swiper Thumbs -->
     <swiper :options="swiperOptionThumbs" class="gallery-thumbs" ref="swiperThumbs">
       <swiper-slide v-for="(item, index) in videosList" v-bind:key="index">
         <video class="video-fluid" loop muted onmouseover="this.play()" onmouseout="this.pause()">
@@ -213,9 +213,10 @@ export default {
 }
 .gallery-thumbs .swiper-slide {
   opacity: 1;
-  // width: 209px !important;
+  width: 209px !important;
   // height: 200px !important;
-  width: 25%;
+  // width: 25%;
+  background-color: black;
   height: 200px;
   top: 10px;
   z-index: 1;
@@ -226,6 +227,7 @@ export default {
     padding: 0 20px;
     position: absolute;
     top: 45%;
+    z-index: 1;
   }
   .caption {
     position: absolute;
@@ -236,6 +238,7 @@ export default {
     color: white;
     text-align: center;
     padding: 5px 10px;
+    z-index: 1;
     p {
       font-weight: normal;
       font-size: 14px;
@@ -245,6 +248,10 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: fill;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
   }
   &:hover {
     transform: scaleX(1.2) scaleY(1.1);
@@ -252,7 +259,6 @@ export default {
   }
 }
 .gallery-thumbs .swiper-slide-active {
-  opacity: 1;
   .caption {
     p {
       font-weight: bold;
