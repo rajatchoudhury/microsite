@@ -209,9 +209,8 @@ export default {
       video.play();
       image.style = "opacity: 0; display: none";
       caption.style = "display: none";
-      document.querySelectorAll(".bg-gradient")[index].style.display = "none";
       document.querySelectorAll(".bg-gradient")[index].style =
-        "opacity: 0; transition: opacity 0.2s ease";
+        "z-index: -1; transition: opacity 0.2s ease";
       this.paused = false;
     },
     pause(index) {
@@ -222,7 +221,7 @@ export default {
       image.style = "opacity: 1; display: block";
       caption.style = "display: block";
       document.querySelectorAll(".bg-gradient")[index].style =
-        "opacity: 1; display: block; transition: opacity 0.2s ease";
+        "z-index: 1; transition: opacity 0.2s ease";
       this.paused = true;
     }
   }
