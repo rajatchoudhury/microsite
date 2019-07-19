@@ -8,7 +8,8 @@ import BannerComponent from "../molecules/BannerComponent";
 import SliderBanner from "../molecules/SliderBanner.vue";
 import VideoCarousel from "../molecules/VideoCarousel.vue";
 import VideoCarouselv2 from "../molecules/VideoCarouselv2.vue";
-import AppCard from '../molecules/AppCard';
+import VideoCarouselSingle from "../molecules/VideoCarouselSingle.vue";
+import AppCard from "../molecules/AppCard";
 
 export default {
   name: "ListOfComponent",
@@ -18,7 +19,8 @@ export default {
         <BannerComponent dataRef={this.dataRef} />
         <SliderBanner />
         <VideoCarousel />
-        <VideoCarouselv2/>
+        <VideoCarouselSingle />
+        <VideoCarouselv2 />
         <AppCard variation="top-right" />
         <AppCard variation="card-double" />
       </div>
