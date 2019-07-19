@@ -27,3 +27,28 @@
 
     }
 }
+
+    .vue-slider-ltr{
+        .vue-slider-mark-step {
+            left: -6px;
+            width: 16px;
+            height: 16px;
+            top: -6px;
+            background: $bg--white;
+            border-radius: 50%;
+        }
+        .vue-slider-mark-step-active{
+            background-color: $bg--blue !important;
+        }
+    } 
+    .vue-slider-mark:first-child .vue-slider-mark-step, .vue-slider-mark:last-child .vue-slider-mark-step {
+        display: block !important;
+    }
+    .slider{
+        background-color:  $bg--black;
+        color: $text--white;
+        padding-left:100px;
+        &__options{
+            padding : 25px 0 50px 0;
+        }
+    }
