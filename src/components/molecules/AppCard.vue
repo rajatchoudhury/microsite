@@ -1,22 +1,15 @@
 <template>
-    <div >
-      <div :class="'card ' + variation">
+    
+      <div :class="'mycard ' + variation">
+          <img class="card__image" src="../../assets/xyz.jpeg" alt="Card Image">
         <div class="card__overlay">
             <div class="card__container">
                 <AppCardTitle :title="title" />
                 <AppCardContent :content="content"/>
             </div>
         </div>
-    </div>
-    </div>
-    
+        </div>   
 </template>
-
-<style>
-    .card {
-        background: center / cover no-repeat url("../../assets/xyz.jpeg");
-    }
-</style>
 
 <script>
 import AppCardTitle from '../atoms/AppCardTitle';
@@ -35,11 +28,11 @@ export default {
         },
         content:{
             type: String,
-            default: 'Content to be shown here.'
+            default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis cras sed felis eget velit.'
         },
         variation:{
             type: String,
-            default: 'card__single'
+            default: 'card--single'
         },    
     }
 }
