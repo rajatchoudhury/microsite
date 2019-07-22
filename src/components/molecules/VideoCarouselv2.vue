@@ -131,19 +131,26 @@ export default {
       swiperOptionTop: {
         spaceBetween: 0,
         loop: false,
-        // loopedSlides: 5, //looped slides should be the same
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
         },
         on: {
           slideChangeTransitionStart() {
-            var video = document.getElementById("video-fluid-" + this.previousIndex);
-            const isVideoPlaying = video => !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
-            if(isVideoPlaying) {
+            var video = document.getElementById(
+              "video-fluid-" + (this.previousIndex ? this.previousIndex : 0)
+            );
+            const isVideoPlaying = video =>
+              !!(
+                video.currentTime > 0 &&
+                !video.paused &&
+                !video.ended &&
+                video.readyState > 2
+              );
+            if (isVideoPlaying) {
               video.click();
             }
-          },
+          }
         }
       },
       swiperOptionThumbs: {
@@ -151,10 +158,8 @@ export default {
         slidesPerView: 6,
         touchRatio: 0.2,
         loop: false,
-        // loopedSlides: 5, //looped slides should be the same
         slideToClickedSlide: true,
         centeredSlides: true,
-        // slidesOffsetBefore: 10,
         breakpointsInverse: true,
         breakpoints: {
           414: {
@@ -169,9 +174,17 @@ export default {
         },
         on: {
           slideChangeTransitionStart() {
-            var video = document.getElementById("video-fluid-" + this.previousIndex);
-            const isVideoPlaying = video => !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
-            if(isVideoPlaying) {
+            var video = document.getElementById(
+              "video-fluid-" + (this.previousIndex ? this.previousIndex : 0)
+            );
+            const isVideoPlaying = video =>
+              !!(
+                video.currentTime > 0 &&
+                !video.paused &&
+                !video.ended &&
+                video.readyState > 2
+              );
+            if (isVideoPlaying) {
               video.click();
             }
           }
@@ -184,10 +197,13 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      const swiperTop = this.$refs.swiperTop.swiper;
-      const swiperThumbs = this.$refs.swiperThumbs.swiper;
-      swiperTop.controller.control = swiperThumbs;
-      swiperThumbs.controller.control = swiperTop;
+      var galleryTop = new Swiper(".gallery-top", this.swiperOptionTop);
+      var galleryThumbs = new Swiper(
+        ".gallery-thumbs",
+        this.swiperOptionThumbs
+      );
+      galleryTop.controller.control = galleryThumbs;
+      galleryThumbs.controller.control = galleryTop;
     });
   },
   methods: {
@@ -266,24 +282,55 @@ export default {
     }
   }
   .left {
-    left:8%;
+    left: 8%;
   }
 
   .right {
-    right:8%;
+    right: 8%;
   }
   .bg-gradient {
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: 1;
-    background: rgba(0,0,0,1);
-    background: -moz-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 38%, rgba(224,221,224,0.15) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(38%, rgba(0,0,0,0.8)), color-stop(100%, rgba(224,221,224,0.15)));
-    background: -webkit-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 38%, rgba(224,221,224,0.15) 100%);
-    background: -o-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 38%, rgba(224,221,224,0.15) 100%);
-    background: -ms-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 38%, rgba(224,221,224,0.15) 100%);
-    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 38%, rgba(224,221,224,0.15) 100%);
+    background: rgba(0, 0, 0, 1);
+    background: -moz-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.8) 38%,
+      rgba(224, 221, 224, 0.15) 100%
+    );
+    background: -webkit-gradient(
+      left bottom,
+      right top,
+      color-stop(0%, rgba(0, 0, 0, 1)),
+      color-stop(38%, rgba(0, 0, 0, 0.8)),
+      color-stop(100%, rgba(224, 221, 224, 0.15))
+    );
+    background: -webkit-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.8) 38%,
+      rgba(224, 221, 224, 0.15) 100%
+    );
+    background: -o-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.8) 38%,
+      rgba(224, 221, 224, 0.15) 100%
+    );
+    background: -ms-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.8) 38%,
+      rgba(224, 221, 224, 0.15) 100%
+    );
+    background: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.8) 38%,
+      rgba(224, 221, 224, 0.15) 100%
+    );
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#e0dde0', GradientType=1 );
   }
   video {
