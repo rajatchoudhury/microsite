@@ -59,9 +59,7 @@
           <h1>{{item.title}}</h1>
           <p>{{item.description}}</p>
         </div>
-      </swiper-slide>
-      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+      </swiper-slide>   
     </swiper>
 
     <!-- swiper Thumbs -->
@@ -75,6 +73,8 @@
           <p>{{item.description}}</p>
         </div>
       </swiper-slide>
+      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
     </swiper>
   </div>
 
@@ -255,13 +255,6 @@ export default {
 .gallery-top {
   height: 800px !important;
   width: 100%;
-  .swiper-button-next,
-  .swiper-button-prev {
-    top: 50% !important;
-  }
-  .swiper-button-disabled {
-    display: none;
-  }
   .play-icon {
     width: 100px;
     position: absolute;
@@ -344,6 +337,22 @@ export default {
   box-sizing: border-box;
   top: -210px;
   height: 220px !important;
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 15% !important;
+    height: 90% !important;
+    width: 70px;
+    background-position-y: 35%;
+  }
+  .swiper-button-prev {
+    left: 0px !important;
+  }
+  .swiper-button-next {
+    right: 0px !important;
+  }
+  .swiper-button-disabled {
+    display: none;
+  }
 }
 .gallery-thumbs .swiper-slide {
   opacity: 1;
@@ -360,7 +369,7 @@ export default {
     font-size: 30px;
     padding: 0 20px;
     position: absolute;
-    top: 45%;
+    top: 47%;
     z-index: 1;
   }
   .caption {
@@ -382,7 +391,7 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: fill;
-    opacity: 0.8;
+    opacity: 0.6;
     &:hover {
       opacity: 1;
     }
