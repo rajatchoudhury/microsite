@@ -1,19 +1,20 @@
 <template>
-     <div class="container-fluid navbar--horizontal">
+     <div class="container-fluid stickytop navbar--horizontal">
       <div class="row">
         <div class="col-12">
           <div class="container container-inside">
             <div class="row">
-              <div class="col-12 topnav" v-bind:class="{ 'responsive-nav': isResponsiveNav }">
+              <div class="col-12 topnav stickytop__titlewrapper titlewrapper--toggle" v-bind:class="{ 'responsive-nav': isResponsiveNav }">
                 <a v-for="(section, index) in selectedMenu"
-                :id="section.id"
-                @click="scrollTo(section.anchor)"
                 data-bi-area="top-nav-menu"
                 :index="index"
                 :key="index"
+                @click="toggleNav()"
+                :href="'#' + section.id"
                 class="nav-item">
                   {{ section.name }}
                 </a>
+                <h1>ZenSar</h1>
               </div>
 
               <div class="carrot-container">
@@ -42,15 +43,10 @@
 	// import "@pnp/polyfill-ie11";
 	import VueSlider from 'vue-slider-component';
 	import 'vue-slider-component/theme/default.css';
-	import ScrollMagic from 'scrollmagic';
   import {String} from 'core-js';
-  // import { ScrollTo } from "scroll-to-position";
-
-	import scrollTo from '@/mixins/scrollTo';
-
 	export default {
   name: "Header",
-  mixins: [scrollTo],
+  // mixins: [scrollTo],
   components: {
       VueSlider
     },
@@ -59,19 +55,60 @@
       value: 'ABOUT',
       data: ['DXP', 'ABOUT', 'CASES', 'ENGAGEMENT', 'ENGAGEMENT'],
       selectedMenu :  [
-            { "name": 'DXP', "id": 'navigation--section-nav-performance' },
-            { "name": 'ABOUT', "id": 'navigation--section-nav-availability' },
-            { "name": 'CASES', "id": 'navigation--section-nav-security' },
-            { "name": 'ENGAGEMENT', "id": 'navigation--section-nav-scalability' },
-            { "name": 'ENGAGEMENT', "id": 'navigation--section-nav-management' }
+            { "name": 'DXP', "id": 'dxp' },
+            { "name": 'ABOUT', "id": 'about' },
+            { "name": 'CASES', "id": 'cases' },
+            { "name": 'ENGAGEMENT', "id": 'engagement' },
+            { "name": 'TEAM', "id": 'team' }
         ],
       isResponsiveNav: false
     };
   },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("resize", this.resizeHeader);
+  },
+  destroyed() {
+    delete window.sticky;
+    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("resize", this.resizeHeader);
+  },
   methods: {
     toggleNav: function() {
-      this.isResponsiveNav = !this.isResponsiveNav;
+      debugger;
+      if(window.outerWidth < 1084){
+        this.isResponsiveNav = !this.isResponsiveNav;
+      }
     },
+    handleScroll() {
+      // Followin code is used to add sticky navigation bar in IE. As position sticky does not work in IE we have to do it in javascript
+      var ua = window.navigator.userAgent;
+      var msie = ua.indexOf("MSIE ");
+      if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+        // If Internet Explorer, return version number
+        var header = document.getElementById("sticky_header");
+        // I am commenting below line because this is causing sticky issue in IE.
+        if (!window.sticky) {
+          window.sticky = header.offsetTop;
+        }
+        if (window.pageYOffset > sticky) {
+          header.style.position = "fixed";
+          header.style.width = "81.14%";
+          header.style.top = "-20px";
+        } else {
+          header.style.width = "100%";
+          header.style.top = "0px";
+
+          if (
+            window.pageYOffset < sticky &&
+            header.style.position != "static"
+          ) {
+            header.style.position = "static";
+          }
+        }
+      }
+      // End of Sticky navbar code for IE
+    }
   },
   watch:{
     value: function(val) {
@@ -82,16 +119,14 @@
 </script>
 <style lang="scss" scoped>
 .navbar--horizontal {
-  background-color: $bg--grey;
+  background-color: $bg--black;
   z-index: 10;
   width: 100% !important;
   transition: all 250ms ease;
   height: 55px;
   @include media-breakpoint-up(xl) {
     height: auto;
-    // display: none;
     opacity: 1;
-    // pointer-events: none;
   }
   .container-inside {
     .topnav {
@@ -120,6 +155,10 @@
       }
       @include media-breakpoint-up(xl) {
         @include flexbox;
+      }
+      h1{
+        color:white;
+        margin-left:auto;
       }
     }
     .carrot-container {
@@ -200,12 +239,30 @@
           float: none;
           display: block;
           color : $text--white;
+          text-align: center;
           &:last-child {
             margin-bottom: 20px;
           }
         }
       }
     }
+  }
+}
+
+.stickytop {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  height: 75px;
+  padding: 0;
+  margin: 0;
+  @include media-breakpoint-down(md) {
+    height: 52px;
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
 }
 </style>

@@ -13,7 +13,7 @@
   -->
 
   <!-- hero -->
-  <div>
+  <div id="team">
     <h2>Version 2 slider</h2>
     <table>
       <thead>

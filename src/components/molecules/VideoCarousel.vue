@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="cases">
     <table>
       <thead>
         <tr>

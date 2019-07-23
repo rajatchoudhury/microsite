@@ -29,6 +29,10 @@
     }
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
     .vue-slider-ltr{
         .vue-slider-mark-step {
             left: -6px;
