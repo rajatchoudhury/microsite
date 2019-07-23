@@ -5,9 +5,10 @@
 @import "./partials/_mixins";     // Custom mixins to assist in development
 @import "./partials/_grid";       // This is a modified version of the Bootstrap grid to account for MWF breakpoints and
 @import "./partials/_fonts";      // Decalaring fonts per MWF guidelines
-@import "./partials/_global";
+
 @import "./partials/_variables";  // Declare global variables here
 @import "./partials/_typography"; // Declaring all typography
+@import "./partials/_global";
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
 @import "./HomePageBanner.scss";
@@ -16,6 +17,7 @@
 @import "./BannerComponent.scss";
 @import "./SliderBanner.scss";
 @import "./VideoCarousel.scss";
+@import "./VideoCarouselSingle.scss";
 @import "./Cards.scss";
 
 .navbar-container {

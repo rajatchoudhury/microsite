@@ -327,6 +327,18 @@
     @include align-items(center);
     @include justify-content(center);
     text-align: center;
+    h3 {
+        font-family: $Oswald-ExtraLight !important;
+        font-weight: $normal !important;
+        line-height: 1.2em !important;
+        font-size: 10rem;
+    }
+    h2 {
+        font-family: $Oswald-SemiBold;
+        font-weight: $semi-bold;
+        font-size: 2em;
+        line-height: 1.2em;
+    }
 }
 
 
@@ -372,6 +384,30 @@ animation: fpBanner 10s infinite;
           animation-duration: 2s;
           position: relative;
     }
+    .zoom-speed-one {
+        transition: transform 1s !important;
+    }
+    .zoom-speed-two {
+        transition: transform 2s !important;
+    }
+    .zoom-speed-three {
+        transition: transform 3s !important;
+    }
+    .zoom-speed-four {
+        transition: transform 4s !important;
+    }
+    .zoom-speed-five {
+        transition: transform 5s !important;
+    }
+
+    .zoom-effect-one {
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        transition: transform 1s !important;
+      }
 
     .zoom-effect {
         -ms-transform: scale(1.2);
@@ -379,7 +415,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1.2);
         -o-transform: scale(1.2);
         transform: scale(1.2);
-        transition: transform 2s;
+        //transition: transform 1s !important;
       }
       .zoom-effect_steptwo {
         -ms-transform: scale(1.4);
@@ -387,7 +423,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1.4);
         -o-transform: scale(1.4);
         transform: scale(1.4);
-        transition: transform 2s;
+        //transition: transform 1s !important;
       }
       .zoom-effect_stepthree {
         -ms-transform: scale(1.6);
@@ -395,7 +431,7 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1.6);
         -o-transform: scale(1.6);
         transform: scale(1.6);
-        transition: transform 2s;
+        //transition: transform 1s !important;
       }
       
       .zoom-outeffect {
@@ -404,6 +440,6 @@ animation: fpBanner 10s infinite;
         -webkit-transform: scale(1);
         -o-transform: scale(1);
         transform: scale(1);
-        transition: transform 2s;
+        //transition: transform 1s !important;
       }
     
