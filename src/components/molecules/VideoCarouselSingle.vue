@@ -1,5 +1,5 @@
 <template>
-  <div class="single-video-container">
+  <div id="engagement" class="single-video-container">
     <img
       id="play-icon-full-video"
       ref="play-icon-full-video"

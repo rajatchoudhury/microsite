@@ -1,5 +1,5 @@
 <template>
-  <div class="sliderBanner">
+  <div id="about" class="sliderBanner">
     <table>
       <thead>
         <tr>
