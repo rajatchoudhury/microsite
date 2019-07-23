@@ -1,7 +1,6 @@
-<template>
-    
+<template>   
       <div :class="'mycard ' + variation">
-          <img class="card__image" src="../../assets/xyz.jpeg" alt="Card Image">
+          <img class="card__image" :src="getImage(cardImage)" alt="Card Image">
         <div class="card__overlay">
             <div class="card__container">
                 <AppCardTitle :title="title" />
@@ -21,6 +20,11 @@ export default {
         AppCardTitle,
         AppCardContent
     },
+     methods: {
+        getImage(img) {
+        return require("@/assets/" + img);
+        }
+    },
     props:{
         title:{
             type: String,
@@ -28,7 +32,11 @@ export default {
         },
         content:{
             type: String,
-            default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis cras sed felis eget velit.'
+            default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        },
+        cardImage: {
+            type: String,
+            default: 'xyz.jpeg'
         },
         variation:{
             type: String,
