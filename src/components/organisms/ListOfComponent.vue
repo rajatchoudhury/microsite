@@ -10,6 +10,7 @@ import VideoCarousel from "../molecules/VideoCarousel.vue";
 import VideoCarouselv2 from "../molecules/VideoCarouselv2.vue";
 import VideoCarouselSingle from "../molecules/VideoCarouselSingle.vue";
 import AppCard from "../molecules/AppCard";
+import Partners from "../molecules/Partners.vue";
 
 export default {
   name: "ListOfComponent",
@@ -23,6 +24,7 @@ export default {
         <VideoCarouselv2 />
         <AppCard variation="top-right" />
         <AppCard variation="card-double" />
+        <Partners />
       </div>
     );
   },

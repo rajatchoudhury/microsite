@@ -1,0 +1,91 @@
+.partner-logo {
+    overflow: hidden;
+    height: 270px;
+    border: 1px solid #eee;
+    
+    @include media-breakpoint-between(sm,md) {
+        height: 145px;
+    }
+    @include media-breakpoint-between(xs,sm) {
+        height: 145px;
+    }
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-height:30%;
+        max-width: 90%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.side-banner {
+    position: relative;
+    overflow: hidden;
+
+    .content {
+        padding: 30px;
+        position: absolute;
+        bottom:10%;
+        color: #fff;
+        text-shadow: 2px 2px 20px #000000;
+
+        h1  {
+            font-family: $Oswald-Light;
+            font-size: 60px;
+        }
+
+        p {
+            font-family: $Oswald-Light;
+            font-size: 20px;
+        }
+        @include media-breakpoint-between(md,lg) {
+            
+            padding: 30px;
+
+            h1  {
+                font-size: 40px;
+            }
+    
+            p {
+                font-size: 20px;
+            }
+          }
+
+          @include media-breakpoint-between(sm,md) {
+            position: static;
+            color: #070303;
+            padding: 20px;
+            text-shadow: none;
+            h1  {
+                font-size: 30px;
+            }
+    
+            p {
+                font-size: 16px;
+            }
+          }
+          
+          @include media-breakpoint-between(xs,sm) {
+            position: static;
+            color: #070303;
+            padding: 20px;
+            text-shadow: none;
+            h1  {
+                font-size: 30px;
+            }
+    
+            p {
+                font-size: 16px;
+            }
+          }
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        transform: translate(-50%, 0);
+        left: 50%;
+        height:100%;
+    }
+}
