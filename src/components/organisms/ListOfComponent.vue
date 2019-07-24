@@ -21,8 +21,8 @@ export default {
         <VideoCarousel />
         <VideoCarouselSingle />
         <VideoCarouselv2 />
-        <AppCard variation="top-right" />
-        <AppCard variation="card-double" />
+        <AppCard variation="top--right" />
+        <AppCard variation="card--double" />
       </div>
     );
   },

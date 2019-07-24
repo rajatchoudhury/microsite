@@ -6,6 +6,11 @@
     overflow: hidden;
     text-align: left;
     margin: 0 auto;
+
+    @include media-breakpoint-down(sm) {
+        max-width: 300px;    
+        height: 180px;
+    }
     
     transition: all .4s cubic-bezier(.3, 0, 0, 1.4);
     .card__image {
@@ -22,6 +27,11 @@
         bottom: 0;
         left: 0;
         width: 550px;
+        word-wrap: break-word;
+        @include media-breakpoint-down(sm) {
+            width: 180px;
+            padding: 15px;
+        }
     }
 
     .card__title {
@@ -29,6 +39,9 @@
         font-size: 70px;
         margin: 0;
         color: #fff;
+        @include media-breakpoint-down(sm) {
+            font-size: 25px;
+        }
     }
 
     .card__content {
@@ -37,7 +50,13 @@
         line-height: 22px;
         color: #fff;
         overflow: hidden;
-        transition: all .4s cubic-bezier(.3, 0, 0, 1.4);        padding-bottom: 5px;
+        transition: all .4s cubic-bezier(.3, 0, 0, 1.4);        
+        padding-bottom: 5px;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 10px;
+            line-height: 12px;
+        }
     }
 
     .card__overlay { 
@@ -47,7 +66,11 @@
          height:100%;
          width:300px;
          background: #01a99f;
-         transition: all .4s cubic-bezier(.3, 0, 0, 1.4);         &:after {
+         transition: all .4s cubic-bezier(.3, 0, 0, 1.4);         
+         @include media-breakpoint-down(sm) {
+            width:95px;
+        }
+         &:after {
             content: " ";
             position: absolute;
             display: block;
@@ -61,6 +84,11 @@
             transform-origin: bottom left;
             -webkit-transform: skew(30deg, 0deg);
             transform: skew(30deg, 0deg);
+
+            @include media-breakpoint-down(sm) {
+                width:150px;
+                left: 95px;
+            }
          }   
          
     }
@@ -74,13 +102,16 @@
 
         // }
 
-        &.top-left{
+        &.top--left{
             .card__overlay { 
                 .card__container {
                     z-index: 2;
                     padding: 40px 50px;
                     top: 0;
                     bottom: unset;
+                    @include media-breakpoint-down(sm) {
+                        padding: 15px;
+                    }
                 }
         
                 &:after {
@@ -92,7 +123,7 @@
             }  
         } 
     
-        &.top-right{
+        &.top--right{
             .card__image {
                 right: unset;
                 left:0;
@@ -106,6 +137,9 @@
                     right: 0;
                     left: unset;
                     text-align: right;
+                    @include media-breakpoint-down(sm) {
+                        padding: 15px;
+                    }
                 }
     
                 &:after {
@@ -116,7 +150,7 @@
             }
         } 
     
-        &.bottom-right {
+        &.bottom--right {
             .card__image {
                 right: unset;
                 left:0;
@@ -149,10 +183,19 @@
     max-width: 400px;
     height: 475px;
     top: 30px;
+
+    @include media-breakpoint-down(sm) {
+        max-width: 180px;
+        height: 200px;
+        top: 15px;
+    }
     
     &:hover {        
         top: 0;
         height: 550px;
+        @include media-breakpoint-down(sm) {
+            height: 230px;
+        }
     }
 
     .card__image {
@@ -167,12 +210,18 @@
         left: unset;
         padding: 20px;
         width: 100%;
+        @include media-breakpoint-down(sm) {
+            padding: 10px;
+        }
     }
 
     .card__overlay {
         bottom:0;;
         top:unset;
          height:150px;
+         @include media-breakpoint-down(sm) {
+            height: 70px;
+        }
          width:100%;
          &:after {
             content: " ";
@@ -191,11 +240,15 @@
          }         
     }
     
-    &.top-left{
+    &.top--left{
         .card__overlay { 
             height: 170px;
             top: 0;
             bottom: unset;
+            @include media-breakpoint-down(sm) {
+                height: 80px;
+            }
+
             .card__container {
                 z-index: 2;
                 top: 0;
@@ -210,11 +263,15 @@
         }  
     } 
 
-    &.top-right{
+    &.top--right{
         .card__overlay {
             height: 170px;
             top: 0;
             bottom: unset;
+
+            @include media-breakpoint-down(sm) {
+                height: 80px;
+            }
             .card__container {
                 z-index: 2;
                 top: 0;
@@ -230,7 +287,7 @@
         }
     } 
 
-    &.bottom-right {
+    &.bottom--right {
         .card__overlay { 
             right: 0;
             .card__container {
@@ -257,10 +314,19 @@
     max-width: 330px;
     height: 500px;
     top: 30px;
+
+    @include media-breakpoint-down(sm) {
+        max-width: 130px;
+        height: 200px;
+        top: 15px;
+    }
     
     &:hover {        
         top: 0;
         height: 550px;
+        @include media-breakpoint-down(sm) {
+            height: 230px;
+        }
 
         .card__content {
             max-height: 120px;
@@ -268,6 +334,9 @@
         }
         .card__overlay {
             height:170px;
+            @include media-breakpoint-down(sm) {
+                height: 100px;
+            }
         }
     }
 
@@ -283,6 +352,9 @@
         left: unset;
         padding: 20px;
         width: 100%;
+        @include media-breakpoint-down(sm) {
+            padding: 15px;
+        }
     }
 
     .card__content {
@@ -295,6 +367,10 @@
         top:unset;
          height:110px;
          width:100%;
+         @include media-breakpoint-down(sm) {
+            height:55px;
+        }
+         
          &:after {
             content: " ";
             position: absolute;
@@ -312,7 +388,7 @@
          }         
     }
 
-    &.top-left{
+    &.top--left{
         .card__overlay { 
             top: 0;
             bottom: unset;
@@ -330,7 +406,7 @@
         }  
     } 
 
-    &.top-right{
+    &.top--right{
         .card__overlay {
             top: 0;
             bottom: unset;
@@ -349,7 +425,7 @@
         }
     } 
 
-    &.bottom-right {
+    &.bottom--right {
         .card__overlay { 
             right: 0;
             .card__container {
@@ -412,6 +488,9 @@
         left: unset;
         padding: 30px !important;
         width: 100%;
+        @include media-breakpoint-down(sm) {
+            padding: 15px !important;
+        }
     }
 
     .card__overlay {
